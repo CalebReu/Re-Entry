@@ -37,9 +37,9 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     private Dictionary<int, string> scenes = new Dictionary<int, string>
     {
         {TITLE_SCREEN, "TitleScreen"},
-        {LEVEL1, "Level1"},
-        {LEVEL2, "Level2"},
-        {LEVEL3, "Level3"},
+        {LEVEL1, "Level_1"},
+        {LEVEL2, "Level_2"},
+        {LEVEL3, "Level_3"},
         {UPGRADE_SCREEN, "UpgradeScreen"},
         {GAME_OVER, "GameOver"},
         {WIN_SCREEN, "WinScreen"}
@@ -57,7 +57,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     public void StartGame()
     {
         currScene = LEVEL1;
-        //loadScene(currScene);
+        loadScene(currScene);
     }
 
     public void ExitGame()
