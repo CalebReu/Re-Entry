@@ -33,7 +33,7 @@ public class SimpleBullet : MonoBehaviour
 
     public void setAngle(float degreeOffset)
     {
-        Transform.Rotate(degreeOffset, Space.Self);
+        transform.eulerAngles = transform.forward*degreeOffset;
     }
 
     private void OnCollisionEnter(Collision collision)
