@@ -175,33 +175,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3198836219313282560, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7626570778219066217, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 916530049}
+      addedObject: {fileID: 2144141423}
   m_SourcePrefab: {fileID: 100100000, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
---- !u!1 &916530048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3198836219313282560, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
-  m_PrefabInstance: {fileID: 883951949}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &916530049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916530048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108c1b126d84fa24fac805ee586dceab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnMove:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFire:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1099178915
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +193,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1099178916
 Transform:
@@ -325,6 +302,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2144141418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7626570778219066217, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
+  m_PrefabInstance: {fileID: 883951949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144141423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144141418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c1b126d84fa24fac805ee586dceab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFire:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
