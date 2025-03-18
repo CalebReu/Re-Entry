@@ -1,6 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
 
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
         InputManager.Instance.OnMove.RemoveListener(MovePlayer);
     }
 
-    private void MovePlayer(Vector3 moveDirection)
+    private void MovePlayer(Vector2 moveDirection)
     {
         rb.linearVelocity = moveDirection * moveSpeed;
     }
