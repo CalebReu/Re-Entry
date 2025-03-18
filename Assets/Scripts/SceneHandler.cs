@@ -22,7 +22,7 @@ Scenes we need (TODO):
 - WinScreen? -> Play Again/Exit
 - Pause? 
 */
-public class SceneHandler : MonoBehaviour
+public class SceneHandler : SingletonMonoBehavior<SceneHandler>
 {
     // Stuff to store/organize scene info -----------------------------------
     private const int
@@ -49,9 +49,10 @@ public class SceneHandler : MonoBehaviour
 
     [SerializeField] private int currScene;
 
-    public void Awake()
+    protected override void Awake()
     {
-        currScene = TITLE_SCREEN;
+        base.Awake(); // Singleton behavior
+        currScene = TITLE_SCREEN; // initialization
     }
     public void StartGame()
     {
