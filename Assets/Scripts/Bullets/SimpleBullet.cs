@@ -31,12 +31,10 @@ public class SimpleBullet : MonoBehaviour
         damage = dmg;
     }
 
-    // TODO: Uncomment once other bullet types are being implemented. No use for single shots
-    // public void setAngle(float degreeOffset)
-    // {
-    //     float upAngle = Vector2.Angle(Vector2.up);
-    //     float newAngle = upAngle + degreeOffset;
-    // }
+    public void setAngle(float degreeOffset)
+    {
+        Transform.Rotate(degreeOffset, Space.Self);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
