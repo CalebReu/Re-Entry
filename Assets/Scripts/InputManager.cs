@@ -8,13 +8,13 @@ public class InputManager : MonoBehaviour
     void Update()
     {
 
-        Vector2 input = Vector2.zero;
-        if (Input.GetKey()) {
+        // Vector2 input = Vector2.zero;
+        // if (Input.GetKey()) {
 
-        }
+        // }
 
-        if (Input.GetKey()) {
+        // if (Input.GetKey()) {
 
-        }
+        // }
     }
 }
