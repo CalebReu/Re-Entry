@@ -1,15 +1,16 @@
 using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -25,5 +26,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     private void MovePlayer(Vector2 moveDirection)
     {
         rb.linearVelocity = moveDirection * moveSpeed;
+        Debug.Log("Moving!!!!");
     }
 }
