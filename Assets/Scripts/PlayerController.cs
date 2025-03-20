@@ -1,12 +1,15 @@
 using Unity.VisualScripting;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private shotType equipped;
     enum shotType {SIMPLE, TRIPLE};
+
+    private bool canFire = true;
 
     private Rigidbody2D rb;
     public GameObject simpleBullet;
@@ -17,6 +20,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         equipped = shotType.SIMPLE;
     }
 
+    IEnumerator reload(float reloadTime)
+    {
+        yield return new WaitForSeconds(reloadTime);
+        canFire = true;
+    }
     private void OnEnable()
     {
         InputManager.Instance.OnMove.AddListener(MovePlayer);
@@ -31,12 +39,16 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void Fire()
     {
-        Debug.Log("Fire!");
+        // Returns if can't fire
+        if (!canFire) return;
+
         // Checks what is equipped
         switch (equipped)
         {
         case shotType.SIMPLE:
             Instantiate(simpleBullet, transform.position, transform.rotation);
+            canFire = false;
+            StartCoroutine(reload(0.5f));
             break;
         }
     }
