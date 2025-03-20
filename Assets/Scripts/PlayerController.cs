@@ -23,9 +23,16 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         InputManager.Instance.OnMove.RemoveListener(MovePlayer);
     }
 
+    private void OnFire()
+    {
+        
+    }
+
     private void MovePlayer(Vector2 moveDirection)
     {
         rb.linearVelocity = moveDirection * moveSpeed;
         Debug.Log("Moving!!!!");
     }
+
+
 }
