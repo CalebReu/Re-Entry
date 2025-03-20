@@ -62,21 +62,23 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 float angle = -30 + (i * 30);
                 bulletScript.setAngle(angle);
                 bulletScript.SetSpeed(400f * bulletSpeedMod);
+                bulletScript.SetSize(1 * bulletSizeMod);
             }
             canFire = false;
             StartCoroutine(reload(1.2f));
             break;
         case shotType.SHOTGUN:
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 5; i++)
             {
                 GameObject newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                 SimpleBullet bulletScript = newBullet.GetComponent<SimpleBullet>();
-                float angle = Random.Range(-60, 60);
+                float angle = Random.Range(-80, 80);
                 bulletScript.setAngle(angle);
-                bulletScript.SetSpeed(600f * bulletSpeedMod);
+                bulletScript.SetSpeed(1000f * bulletSpeedMod);
+                bulletScript.SetSize(0.3f * bulletSizeMod);
             }
             canFire = false;
-            StartCoroutine(reload(1.2f));
+            StartCoroutine(reload(1f));
             break;
         }
     }

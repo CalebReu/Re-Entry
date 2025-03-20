@@ -31,6 +31,10 @@ public class SimpleBullet : MonoBehaviour
         damage = dmg;
     }
 
+    public void SetSize(float sizeChange)
+    {
+        transform.localScale = new Vector3(sizeChange, sizeChange, 1);
+    }
     public void setAngle(float degreeOffset)
     {
         transform.eulerAngles = transform.forward*degreeOffset;
