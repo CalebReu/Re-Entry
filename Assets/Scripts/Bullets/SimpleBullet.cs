@@ -16,7 +16,7 @@ public class SimpleBullet : MonoBehaviour
     void Update()
     {
         // Moves bullet forwards at assigned speed
-        rb.linearVelocity = Vector2.up * speed * Time.deltaTime;
+        rb.linearVelocity = transform.up * speed * Time.deltaTime;
     }
 
     // Sets move speed of bullet
@@ -31,6 +31,10 @@ public class SimpleBullet : MonoBehaviour
         damage = dmg;
     }
 
+    public void SetSize(float sizeChange)
+    {
+        transform.localScale = new Vector3(sizeChange, sizeChange, 1);
+    }
     public void setAngle(float degreeOffset)
     {
         transform.eulerAngles = transform.forward*degreeOffset;
