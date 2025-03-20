@@ -37,18 +37,21 @@ public class SimpleBullet : MonoBehaviour
     }
     public void setAngle(float degreeOffset)
     {
-        transform.eulerAngles = transform.forward*degreeOffset;
+        transform.eulerAngles = transform.forward * degreeOffset;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        // TODO: Might need to change this to layers depending on Caleb's implementation
         if (collision.gameObject.tag == "Enemy")
         {
+            GameManager.Instance.UpdateScore();
             // TODO: Implement damage functionality once enemy functionality is added
             // Enemy enemy = collision.gameObject;
             // enemy.damage(damage);
         }
         // TODO: Explosion FX go here
         Destroy(gameObject);
+
     }
 }
