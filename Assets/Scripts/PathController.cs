@@ -7,8 +7,8 @@ using UnityEngine;
 public enum PathMovementStyle
 {
     Continuous,
-    Slerp,
-    Lerp,
+    Slerp, // may remove if unused
+    Lerp,  // may remove if unused
 }
 public class PathController : MonoBehaviour
 {
@@ -18,30 +18,60 @@ public class PathController : MonoBehaviour
     [SerializeField] private PathMovementStyle MovementStyle;
     [SerializeField] private bool LoopThroughPoints;
     [SerializeField] private bool StartAtFirstPointOnAwake;
+    [SerializeField] private int pauseAtEnd = 0;
+    [SerializeField] private int teleportAtIndex = -1;
 
     private Transform[] _points;
 
     private int _currentTargetIdx;
+    private float _pauseTimer;
+    private bool _isMoving;
+    private bool _isFinished = false;
 
     private void Awake()
     {
         _points = PathContainer.GetComponentsInChildren<Transform>();
+        _pauseTimer = pauseAtEnd;
         if (StartAtFirstPointOnAwake)
         {
             transform.position = _points[0].position;
         }
     }
 
+    public void BeginMovement()
+    {
+        _isMoving = true;
+    }
+    public bool IsFinished()
+    {
+        return _isFinished;
+    }
+
     private void Update()
     {
-        if (_points == null || _points.Length == 0) return;
+        if (_points == null || _points.Length == 0 || !_isMoving) return;
         var distance = Vector3.Distance(transform.position, _points[_currentTargetIdx].position);
         if (distance * distance < 0.1f)
         {
             _currentTargetIdx++;
             if (_currentTargetIdx >= _points.Length)
             {
-                _currentTargetIdx = LoopThroughPoints ? 0 : _points.Length - 1;
+                _currentTargetIdx = _points.Length - 1; // stay at last point
+                if (_pauseTimer > 0) _pauseTimer -= Time.deltaTime;
+                else if (LoopThroughPoints)
+                {
+                    _pauseTimer = pauseAtEnd; // reset pause timer
+                    _currentTargetIdx = 0;
+                }
+                else
+                {
+                    _isMoving = false;
+                    _isFinished = true;
+                }
+            }
+            else if (teleportAtIndex == _currentTargetIdx - 1)
+            {
+                transform.position = _points[_currentTargetIdx].position;
             }
         }
         switch (MovementStyle)
@@ -71,6 +101,7 @@ public class PathController : MonoBehaviour
         }
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, _points[_currentTargetIdx].position);
+        if (_currentTargetIdx < _points.Length)
+            Gizmos.DrawLine(transform.position, _points[_currentTargetIdx].position);
     }
 }
