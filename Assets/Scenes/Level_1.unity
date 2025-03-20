@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 481579483467446443, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
+      propertyPath: equipped
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 481579483467446443, guid: 2da7a8f563369d441bde523016d6f0c8, type: 3}
       propertyPath: simpleBullet
       value: 
       objectReference: {fileID: 8505558168145713895, guid: 0de030f53ff202e499537e34f5d70762, type: 3}

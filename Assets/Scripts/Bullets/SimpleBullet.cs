@@ -16,7 +16,7 @@ public class SimpleBullet : MonoBehaviour
     void Update()
     {
         // Moves bullet forwards at assigned speed
-        rb.linearVelocity = Vector2.up * speed * Time.deltaTime;
+        rb.linearVelocity = transform.up * speed * Time.deltaTime;
     }
 
     // Sets move speed of bullet
