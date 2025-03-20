@@ -358,4 +358,4 @@ MonoBehaviour:
   LoopThroughPoints: 1
   StartAtFirstPointOnAwake: 0
   pauseAtEnd: 5
-  teleportAtIndex: 4
+  teleportAtIndex: 3

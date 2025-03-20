@@ -119,6 +119,8 @@ MonoBehaviour:
   MovementStyle: 0
   LoopThroughPoints: 0
   StartAtFirstPointOnAwake: 1
+  pauseAtEnd: 0
+  teleportAtIndex: -1
 --- !u!1 &9029940254287040949
 GameObject:
   m_ObjectHideFlags: 0
