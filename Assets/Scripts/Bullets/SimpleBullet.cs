@@ -13,6 +13,7 @@ public class SimpleBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider>();
         speed = baseSpeed;
+        Debug.Log("Bullet created");
     }
 
     void Update()
@@ -42,15 +43,26 @@ public class SimpleBullet : MonoBehaviour
         transform.eulerAngles = transform.forward * degreeOffset;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void SetEnemy()
     {
-        if (collision.gameObject.tag == "Enemy")
+        gameObject.tag = "EnemyBullet";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "PlayerBullet")
         {
-            // TODO: Implement damage functionality once enemy functionality is added
-            // Enemy enemy = collision.gameObject;
-            // enemy.damage(damage);
+            Debug.Log("Hit enemy");
+            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+            enemy.Damage(damage);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
         }
         // TODO: Explosion FX go here
-        Destroy(gameObject);
+
     }
 }

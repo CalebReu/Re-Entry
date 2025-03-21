@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &921735830321195607
+--- !u!1 &1871096068944166555
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2082655715334806682}
-  - component: {fileID: 9083704879925147795}
-  m_Layer: 6
-  m_Name: Collider
-  m_TagString: Untagged
+  - component: {fileID: 762116026617747823}
+  - component: {fileID: 7104691483746908895}
+  - component: {fileID: 613358098558390122}
+  - component: {fileID: 2757424372266732462}
+  m_Layer: 0
+  m_Name: BasicEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2082655715334806682
+--- !u!4 &762116026617747823
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921735830321195607}
+  m_GameObject: {fileID: 1871096068944166555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: -3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 762116026617747823}
+  m_Children:
+  - {fileID: 806702989699300651}
+  - {fileID: 2716882141203163909}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &9083704879925147795
+--- !u!58 &7104691483746908895
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921735830321195607}
+  m_GameObject: {fileID: 1871096068944166555}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -62,48 +66,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.25
---- !u!1 &1871096068944166555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 762116026617747823}
-  - component: {fileID: 613358098558390122}
-  - component: {fileID: 2757424372266732462}
-  m_Layer: 6
-  m_Name: BasicEnemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &762116026617747823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871096068944166555}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -3.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 806702989699300651}
-  - {fileID: 2082655715334806682}
-  - {fileID: 2716882141203163909}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &613358098558390122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +86,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8505558168145713895, guid: 0de030f53ff202e499537e34f5d70762, type: 3}
   fireRate: 0.2
-  bulletSpeed: 1
+  bulletSpeedModifier: 1
+  startingHealth: 1
 --- !u!114 &2757424372266732462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2716882141203163909}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BulletSpawnRef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806702989699300651}
   - component: {fileID: 3402736908592317787}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

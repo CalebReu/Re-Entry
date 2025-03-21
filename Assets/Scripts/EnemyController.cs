@@ -5,7 +5,9 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate;
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletSpeedModifier;
+    [SerializeField] private int startingHealth;
+    private int health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
     private int currentMovementIdx = 0;
@@ -13,6 +15,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         bulletSpawnPoint = transform.Find("BulletSpawnRef");
+        health = startingHealth;
         fireTimer = UnityEngine.Random.Range(0, 1 / fireRate); // first shot is random
         pathControllers = GetComponents<PathController>();
         pathControllers[currentMovementIdx].BeginMovement();
@@ -41,9 +44,18 @@ public class EnemyController : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         SimpleBullet simpleBullet = bullet.GetComponent<SimpleBullet>();
+        simpleBullet.SetEnemy();
         simpleBullet.setAngle(180);
-        simpleBullet.SetSpeed(bulletSpeed);
+        simpleBullet.SetSpeed(bulletSpeedModifier);
         simpleBullet.SetSize(0.3f);
 
+    }
+    public void Damage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
