@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class SimpleBullet : MonoBehaviour
 {
-    [SerializeField] private float speed = 400f;
+    [SerializeField] private float baseSpeed = 5f;
     [SerializeField] private int damage = 1;
+    private float speed;
     private Rigidbody2D rb;
     private Collider col;
 
@@ -11,18 +12,20 @@ public class SimpleBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider>();
+        speed = baseSpeed;
+        Debug.Log("Bullet created");
     }
 
     void Update()
     {
         // Moves bullet forwards at assigned speed
-        rb.linearVelocity = transform.up * speed * Time.deltaTime;
+        rb.linearVelocity = transform.up * speed;
     }
 
     // Sets move speed of bullet
     public void SetSpeed(float newSpeed)
     {
-        speed = newSpeed;
+        speed = newSpeed * baseSpeed;
     }
 
     // Sets damage of bullet
@@ -37,18 +40,29 @@ public class SimpleBullet : MonoBehaviour
     }
     public void setAngle(float degreeOffset)
     {
-        transform.eulerAngles = transform.forward*degreeOffset;
+        transform.eulerAngles = transform.forward * degreeOffset;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void SetEnemy()
     {
-        if (collision.gameObject.tag == "Enemy")
+        gameObject.tag = "EnemyBullet";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "PlayerBullet")
         {
-            // TODO: Implement damage functionality once enemy functionality is added
-            // Enemy enemy = collision.gameObject;
-            // enemy.damage(damage);
+            Debug.Log("Hit enemy");
+            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+            enemy.Damage(damage);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
         }
         // TODO: Explosion FX go here
-        Destroy(gameObject);
+
     }
 }
