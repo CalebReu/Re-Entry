@@ -61,6 +61,7 @@ public class SimpleBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             Debug.Log("Hit player");
+            GameManager.Instance.loseLive(damage);
             Destroy(gameObject);
         }
         // TODO: Explosion FX go here

@@ -980,6 +980,10 @@ PrefabInstance:
       propertyPath: hudPanel
       value: 
       objectReference: {fileID: 1308780933}
+    - target: {fileID: 8943836891715155014, guid: 4b47b4cf9ba270040ba2a8cfb1a56460, type: 3}
+      propertyPath: InvincibilityDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
