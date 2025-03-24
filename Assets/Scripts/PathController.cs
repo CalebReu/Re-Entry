@@ -19,6 +19,7 @@ public class PathController : MonoBehaviour
     [SerializeField] private bool LoopThroughPoints;
     [SerializeField] private bool StartAtFirstPointOnAwake;
     [SerializeField] private int pauseAtEnd = 0;
+    [SerializeField] private bool randomizePause = false;
     [SerializeField] private int teleportAtIndex = -1;
 
     private Transform[] _points;
@@ -31,7 +32,7 @@ public class PathController : MonoBehaviour
     private void Awake()
     {
         _points = PathContainer.GetComponentsInChildren<Transform>();
-        _pauseTimer = pauseAtEnd;
+        _pauseTimer = randomizePause ? Random.Range(0, pauseAtEnd) : pauseAtEnd;
         if (StartAtFirstPointOnAwake)
         {
             transform.position = _points[0].position;
@@ -60,7 +61,7 @@ public class PathController : MonoBehaviour
                 if (_pauseTimer > 0) _pauseTimer -= Time.deltaTime;
                 else if (LoopThroughPoints)
                 {
-                    _pauseTimer = pauseAtEnd; // reset pause timer
+                    _pauseTimer = randomizePause ? Random.Range(0, pauseAtEnd) : pauseAtEnd; // reset pause timer
                     _currentTargetIdx = 0;
                 }
                 else

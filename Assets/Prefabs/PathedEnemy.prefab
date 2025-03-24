@@ -324,6 +324,7 @@ MonoBehaviour:
   LoopThroughPoints: 0
   StartAtFirstPointOnAwake: 0
   pauseAtEnd: 2
+  randomizePause: 1
   teleportAtIndex: -1
 --- !u!114 &1187621047776777799
 MonoBehaviour:
@@ -343,4 +344,5 @@ MonoBehaviour:
   LoopThroughPoints: 1
   StartAtFirstPointOnAwake: 0
   pauseAtEnd: 5
+  randomizePause: 1
   teleportAtIndex: 3
