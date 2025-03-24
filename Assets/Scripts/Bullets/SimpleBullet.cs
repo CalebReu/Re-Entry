@@ -4,6 +4,7 @@ public class SimpleBullet : MonoBehaviour
 {
     [SerializeField] private float baseSpeed = 5f;
     [SerializeField] private int damage = 1;
+    [SerializeField] private float lifeSpan = 10;
     private float speed;
     private Rigidbody2D rb;
     private Collider col;
@@ -19,6 +20,7 @@ public class SimpleBullet : MonoBehaviour
     {
         // Moves bullet forwards at assigned speed
         rb.linearVelocity = transform.up * speed;
+        updateLifeSpan();//kills the bullet after 10 seconds.
     }
 
     // Sets move speed of bullet
@@ -45,6 +47,13 @@ public class SimpleBullet : MonoBehaviour
     public void SetEnemy()
     {
         gameObject.tag = "EnemyBullet";
+    }
+
+    private void updateLifeSpan() {
+        lifeSpan -= Time.deltaTime;
+        if (lifeSpan <= 0) {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
