@@ -5,15 +5,11 @@ public class HUDPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI txtScore;
     [SerializeField] private TextMeshProUGUI txtLives;
-    void Start()
-    {
-        resetHUD();
-    }
 
-    private void resetHUD()
+    public void ResetHUD()
     {
         txtScore.SetText("Score: " + 0);
-        txtLives.SetText("Lives: " + 3);
+        txtLives.SetText("Lives: " + GameManager.MAX_LIVES);
     }
 
     // TODO: decide if it's necessary to specify the increment (int param)

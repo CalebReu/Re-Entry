@@ -53,6 +53,7 @@ public class SimpleBullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "PlayerBullet")
         {
             Debug.Log("Hit enemy");
+            GameManager.Instance.UpdateScore();
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
             enemy.Damage(damage);
             Destroy(gameObject);
