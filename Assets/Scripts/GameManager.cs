@@ -45,7 +45,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         if (!isPlayerInvincible) //only updates lives if the player is not invincible
         {   UpdateLives(newTotal);  // updates the lives.
             isPlayerInvincible = !isPlayerInvincible; // makes the player invincible (to block any more damage this frame);
-            invincibilityTimer += InvincibilityDuration;// makes the player invincible for the next (InvincibilityDuration) seconds
+            invincibilityTimer = InvincibilityDuration;// makes the player invincible for the next (InvincibilityDuration) seconds
+            CameraShake.Instance.TriggerShake();
+            Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
       
     }
@@ -59,6 +61,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         }
     }
     private void GameOver() {
-    // TODO add gameover behavior
+        SceneHandler.Instance.GameOver();
     }
 }
