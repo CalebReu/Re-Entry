@@ -13,7 +13,6 @@ public class SimpleBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider>();
         speed = baseSpeed;
-        Debug.Log("Bullet created");
     }
 
     void Update()

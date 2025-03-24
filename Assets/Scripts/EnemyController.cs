@@ -58,4 +58,13 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit player with enemy body");
+            // TODO: Implement player damage
+        }
+    }
 }
