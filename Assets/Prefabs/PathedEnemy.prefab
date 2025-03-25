@@ -324,6 +324,7 @@ MonoBehaviour:
   LoopThroughPoints: 0
   StartAtFirstPointOnAwake: 0
   pauseAtEnd: 2
+  randomizePause: 1
   teleportAtIndex: -1
 --- !u!114 &1187621047776777799
 MonoBehaviour:
@@ -337,10 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce8669e5bec03349970dc159cbf6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 8
+  MovementSpeed: 6
   PathContainer: {fileID: 8248417533858515402}
   MovementStyle: 0
   LoopThroughPoints: 1
   StartAtFirstPointOnAwake: 0
   pauseAtEnd: 5
+  randomizePause: 1
   teleportAtIndex: 3

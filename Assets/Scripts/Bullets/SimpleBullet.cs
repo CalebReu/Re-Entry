@@ -13,7 +13,6 @@ public class SimpleBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider>();
         speed = baseSpeed;
-        Debug.Log("Bullet created");
     }
 
     void Update()
@@ -61,6 +60,7 @@ public class SimpleBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             Debug.Log("Hit player");
+            // TODO: Implement player damage
             Destroy(gameObject);
         }
         // TODO: Explosion FX go here
