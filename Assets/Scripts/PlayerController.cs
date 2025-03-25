@@ -104,20 +104,28 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void MovePlayer(Vector2 moveDirection)
     {
-        float playerWidth = playerBoundingBox.size.x;
-
-
-        if (transform.position.x <= (leftBound + playerWidth / 2))
-        {
-            transform.position = new Vector3(leftBound + playerWidth / 2, transform.position.y, transform.position.z);
-        }
-
-        if (transform.position.x >= (rightBound - playerWidth / 2))
-        {
-            transform.position = new Vector3(rightBound - playerWidth / 2, transform.position.y, transform.position.z);
-        }
-
+        stayWithinBounds();
         rb.linearVelocity = moveDirection * moveSpeed;
+    }
+
+    // helper fn for MovePlayer
+    // checks if player is at left or right screen edge, and does not let them go past it
+    private void stayWithinBounds()
+    {
+        float playerWidth = playerBoundingBox.size.x;
+        Vector3 pos = transform.position;
+
+        if (pos.x <= (leftBound + playerWidth / 2))
+        {
+            pos.x = leftBound + playerWidth / 2;
+        }
+
+        if (pos.x >= (rightBound - playerWidth / 2))
+        {
+            pos.x = rightBound - playerWidth / 2;
+        }
+
+        transform.position = pos;
     }
 
 
