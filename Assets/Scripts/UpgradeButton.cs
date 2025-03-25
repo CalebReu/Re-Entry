@@ -35,5 +35,8 @@ public class UpgradeButton : MonoBehaviour
                 gameManager.SetWeapon(GameManager.shotType.SHOTGUN);
                 break;
         }
+
+        // After upgrade is performed, moves to next level.
+        // gameManager.NextLevel()
     }
 }

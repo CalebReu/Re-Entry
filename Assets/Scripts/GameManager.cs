@@ -36,22 +36,22 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     public void SetFireRateMod(float newMod)
     {
-        fireRateMod = newMod;
+        fireRateMod += newMod;
     }
 
     public void SetBulletSizeMod(float newMod)
     {
-        bulletSizeMod = newMod;
+        bulletSizeMod += newMod;
     }
 
     public void SetBulletSpeedMod(float newMod)
     {
-        bulletSpeedMod = newMod;
+        bulletSpeedMod += newMod;
     }
 
     public void SetDamageMod(float newMod)
     {
-        damageMod = newMod;
+        damageMod += newMod;
     }
 
     // OPTIONAL TODO: Upgrade receive animation for juice :)
