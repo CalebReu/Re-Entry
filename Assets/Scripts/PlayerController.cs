@@ -6,6 +6,12 @@ using System.Collections;
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
+
+    // for bounding movement to within screen bounds only
+    [SerializeField] private float leftBound, rightBound;
+    private BoxCollider2D playerBoundingBox;
+
+    // bullet stuff
     [SerializeField] private shotType equipped;
     enum shotType { SIMPLE, TRIPLE, SHOTGUN };
 
@@ -20,6 +26,14 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerBoundingBox = GetComponent<BoxCollider2D>();
+
+        if (Camera.main != null)
+        {
+            rightBound = Camera.main.orthographicSize * Camera.main.aspect;
+            leftBound = -rightBound;
+        }
+
     }
 
     IEnumerator reload(float reloadTime)
@@ -90,6 +104,19 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void MovePlayer(Vector2 moveDirection)
     {
+        float playerWidth = playerBoundingBox.size.x;
+
+
+        if (transform.position.x <= (leftBound + playerWidth / 2))
+        {
+            transform.position = new Vector3(leftBound + playerWidth / 2, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x >= (rightBound - playerWidth / 2))
+        {
+            transform.position = new Vector3(rightBound - playerWidth / 2, transform.position.y, transform.position.z);
+        }
+
         rb.linearVelocity = moveDirection * moveSpeed;
     }
 
