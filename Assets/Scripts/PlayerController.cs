@@ -22,7 +22,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     // Increasable stats (1 means no change in stat):
     public float fireRateMod = 1f;
     public float bulletSpeedMod = 1f;
-    public float bulletSizeMod = 1f;
+    public float bulletSizeMod = 0.3f;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +38,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     IEnumerator reload(float reloadTime)
     {
-        yield return new WaitForSeconds(reloadTime * fireRateMod);
+        yield return new WaitForSeconds(reloadTime / fireRateMod);
         canFire = true;
     }
     private void OnEnable()
