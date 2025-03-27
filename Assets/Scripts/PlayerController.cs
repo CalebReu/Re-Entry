@@ -7,24 +7,16 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private shotType equipped;
-    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
-
-    private float fireRateMod = 1f;
-    private float bulletSpeedMod = 1f;
-    private float bulletSizeMod = 0.3f;
-    private float damageMod = 1f;
+    enum shotType { SIMPLE, TRIPLE, SHOTGUN };
 
     private bool canFire = true;
     private Rigidbody2D rb;
     public GameObject simpleBullet;
 
-<<<<<<< HEAD
     // Increasable stats (1 means no change in stat):
     public float fireRateMod = 1f;
     public float bulletSpeedMod = 1f;
     public float bulletSizeMod = 1f;
-=======
->>>>>>> juicin-it
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,7 +55,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
                 bulletScript.SetSize(1 * bulletSizeMod);
-                bulletScript.SetDamage(1 * damageMod);
                 canFire = false;
                 StartCoroutine(reload(0.5f));
                 break;
@@ -77,7 +68,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(1 * bulletSizeMod);
-                    bulletScript.SetDamage(1 * damageMod);
                 }
                 canFire = false;
                 StartCoroutine(reload(1.2f));
@@ -91,7 +81,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(0.3f * bulletSizeMod);
-                    bulletScript.SetDamage(1 * damageMod);
                 }
                 canFire = false;
                 StartCoroutine(reload(1f));
@@ -104,53 +93,5 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         rb.linearVelocity = moveDirection * moveSpeed;
     }
 
-<<<<<<< HEAD
-=======
-    public void SetWeapon(shotType newWeapon)
-    {
-        equipped = newWeapon;
-    }
-
-    public void SetFireRate(float newMod)
-    {
-        fireRateMod = newMod;
-    }
-
-    public void SetBulletSizeMod(float newMod)
-    {
-        bulletSizeMod = newMod;
-    }
-
-    public void SetBulletSpeedMod(float newMod)
-    {
-        bulletSpeedMod = newMod;
-    }
-
-    public void SetDamageMod(float newMod)
-    {
-        damageMod = newMod;
-    }
-
-    // helper fn for MovePlayer
-    // checks if player is at left or right screen edge, and does not let them go past it
-    private void stayWithinBounds()
-    {
-        float playerWidth = playerBoundingBox.size.x;
-        Vector3 pos = transform.position;
-
-        if (pos.x <= (leftBound + playerWidth / 2))
-        {
-            pos.x = leftBound + playerWidth / 2;
-        }
-
-        if (pos.x >= (rightBound - playerWidth / 2))
-        {
-            pos.x = rightBound - playerWidth / 2;
-        }
-
-        transform.position = pos;
-    }
-
->>>>>>> juicin-it
 
 }
