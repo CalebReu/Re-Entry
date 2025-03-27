@@ -30,17 +30,15 @@ public class UpgradePanel : MonoBehaviour
         upgradeList[4] = shotgun;
         upgradeList[5] = triple;
         upgradeList[6] = single;
-
-        GenerateUpgrades();
     }
     public void Hide()
     {
-        enabled = false;
+        gameObject.SetActive(false);
     }
 
     public void Show()
     {
-        enabled = true;
+        gameObject.SetActive(true);
     }
 
     public void GenerateUpgrades()
