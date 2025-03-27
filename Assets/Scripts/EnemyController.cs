@@ -7,8 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float bulletSpeedModifier;
     [SerializeField] private int startingHealth;
-    
-    private int health;
+    private float health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
     private int currentMovementIdx = 0;
@@ -51,7 +50,7 @@ public class EnemyController : MonoBehaviour
         simpleBullet.SetSize(0.3f);
 
     }
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -65,7 +64,6 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit player with enemy body");
-              GameManager.Instance.loseLive(1); // this is hardcoded for now (maybe forever).
             // TODO: Implement player damage
         }
     }

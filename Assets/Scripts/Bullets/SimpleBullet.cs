@@ -1,26 +1,38 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SimpleBullet : MonoBehaviour
 {
     [SerializeField] private float baseSpeed = 5f;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float lifeSpan = 10;
+    [SerializeField] private float damage = 1f;
     private float speed;
     private Rigidbody2D rb;
-    private Collider col;
+    private CircleCollider2D col;
+    [SerializeField] private float topBound, bottomBound; // to check when bullet is off screen
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider>();
+        col = GetComponent<CircleCollider2D>();
         speed = baseSpeed;
+
+        if (Camera.main != null)
+        {
+            topBound = Camera.main.orthographicSize;
+            bottomBound = -topBound;
+        }
     }
 
     void Update()
     {
         // Moves bullet forwards at assigned speed
         rb.linearVelocity = transform.up * speed;
-        updateLifeSpan();//kills the bullet after 10 seconds.
+
+        if (isOffScreen())
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Sets move speed of bullet
@@ -30,7 +42,7 @@ public class SimpleBullet : MonoBehaviour
     }
 
     // Sets damage of bullet
-    public void SetDamage(int dmg)
+    public void SetDamage(float dmg)
     {
         damage = dmg;
     }
@@ -49,13 +61,6 @@ public class SimpleBullet : MonoBehaviour
         gameObject.tag = "EnemyBullet";
     }
 
-    private void updateLifeSpan() {
-        lifeSpan -= Time.deltaTime;
-        if (lifeSpan <= 0) {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "PlayerBullet")
@@ -69,10 +74,21 @@ public class SimpleBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             Debug.Log("Hit player");
-            GameManager.Instance.loseLive(damage);
+            // TODO: Implement player damage
             Destroy(gameObject);
         }
         // TODO: Explosion FX go here
 
+    }
+
+    // helper fn to check if bullet is off screen, so we know when we can delete it
+    // in order to not clog up resources
+    private bool isOffScreen()
+    {
+        Vector3 pos = transform.position;
+        float bulletHeight = col.radius; // already divided in 1/2 since radius
+
+        return (pos.y >= topBound + bulletHeight) ||
+        (pos.y <= bottomBound - bulletHeight);
     }
 }
