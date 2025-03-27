@@ -47,6 +47,10 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score++;
         hudPanel.UpdateScore(score);
     }
+    public void SetWeapon(shotType newWeapon)
+    {
+        equipped = newWeapon;
+    }
 
     public void loseLive(float dmg) { // calculates the new life total then calls the private function for updating the lives
         int newTotal = (int)Mathf.Max(lives - dmg, 0); // no negative values here!
@@ -57,6 +61,10 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             CameraShake.Instance.TriggerShake();
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
+      
+    public void SetFireRateMod(float newMod)
+    {
+        fireRateMod += newMod;
     }
       
     
@@ -68,9 +76,17 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             GameOver();
             Debug.Log("GAME OVER");
         }
+
+    public void SetBulletSizeMod(float newMod)
+    {
+        bulletSizeMod += newMod;
     }
     private void GameOver() {
         SceneHandler.Instance.GameOver();
+
+    public void SetBulletSpeedMod(float newMod)
+    {
+        bulletSpeedMod += newMod;
     }
 
     public void SetBulletSizeMod(float newMod)
@@ -83,4 +99,10 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         bulletSpeedMod += newMod;
     }
+    public void SetDamageMod(float newMod)
+    {
+        damageMod += newMod;
+    }
+
+    // OPTIONAL TODO: Upgrade receive animation for juice :)
 }
