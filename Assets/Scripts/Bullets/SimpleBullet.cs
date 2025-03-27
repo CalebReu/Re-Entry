@@ -3,8 +3,8 @@ using UnityEngine;
 public class SimpleBullet : MonoBehaviour
 {
     [SerializeField] private float baseSpeed = 5f;
+    [SerializeField] private int damage = 1;
     [SerializeField] private float lifeSpan = 10;
-    [SerializeField] private float damage = 1f;
     private float speed;
     private Rigidbody2D rb;
     private Collider col;
@@ -30,7 +30,7 @@ public class SimpleBullet : MonoBehaviour
     }
 
     // Sets damage of bullet
-    public void SetDamage(float dmg)
+    public void SetDamage(int dmg)
     {
         damage = dmg;
     }

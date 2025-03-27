@@ -7,7 +7,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float bulletSpeedModifier;
     [SerializeField] private int startingHealth;
-    private float health;
+    
+    private int health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
     private int currentMovementIdx = 0;
@@ -50,7 +51,7 @@ public class EnemyController : MonoBehaviour
         simpleBullet.SetSize(0.3f);
 
     }
-    public void Damage(float damage)
+    public void Damage(int damage)
     {
         health -= damage;
         if (health <= 0)
