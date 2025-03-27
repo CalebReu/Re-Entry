@@ -10,7 +10,8 @@ public class UpgradeButton : MonoBehaviour
     public void DoUpgrade()
     {
         GameManager gameManager = GameManager.Instance;
-
+        Debug.Log(modType);
+        Debug.Log(modAmount);
         switch (modType)
         {
             case Modifier.DAMAGE:

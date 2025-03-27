@@ -88,6 +88,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8628596599032933098}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869891819961916831, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3738527303588892167, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
       propertyPath: modType
       value: 2
@@ -106,10 +130,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499362698786340021, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
       propertyPath: m_Name
-      value: UpgradePanel Variant
+      value: BulletSizeUpgrade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+--- !u!114 &8628596599032933098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3738527303588892167, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
+  m_PrefabInstance: {fileID: 4926661076776625389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10649d0858e90b742aa278e6a88476f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
