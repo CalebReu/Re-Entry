@@ -40,8 +40,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         hudPanel.UpdateScore(score);
     }
 
-    public void loseLive(int dmg) { // calculates the new life total then calls the private function for updating the lives
-        int newTotal = Mathf.Max(lives - dmg, 0); // no negative values here!
+    public void loseLive(float dmg) { // calculates the new life total then calls the private function for updating the lives
+        int newTotal = (int)Mathf.Max(lives - dmg, 0); // no negative values here!
         if (!isPlayerInvincible) //only updates lives if the player is not invincible
         {   UpdateLives(newTotal);  // updates the lives.
             isPlayerInvincible = !isPlayerInvincible; // makes the player invincible (to block any more damage this frame);
@@ -49,8 +49,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             CameraShake.Instance.TriggerShake();
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
-      
     }
+      
+    
     private void UpdateLives(int lives) {
         this.lives = lives;
         hudPanel.UpdateLives(lives);
@@ -62,5 +63,18 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     }
     private void GameOver() {
         SceneHandler.Instance.GameOver();
+    }
+
+    public void SetBulletSizeMod(float newMod)
+    {
+        bulletSizeMod += newMod;
+    }
+    private void GameOver() {
+        SceneHandler.Instance.GameOver();
+    }
+
+    public void SetBulletSpeedMod(float newMod)
+    {
+        bulletSpeedMod += newMod;
     }
 }
