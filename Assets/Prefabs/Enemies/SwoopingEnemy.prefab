@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: pauseAtEnd
-      value: 1
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: PathContainer
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce8669e5bec03349970dc159cbf6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
+  MovementSpeed: 1
   PathContainer: {fileID: 373420588174149020}
   MovementStyle: 0
   LoopThroughPoints: 0

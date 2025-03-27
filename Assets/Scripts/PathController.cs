@@ -18,7 +18,7 @@ public class PathController : MonoBehaviour
     [SerializeField] private PathMovementStyle MovementStyle;
     [SerializeField] private bool LoopThroughPoints;
     [SerializeField] private bool StartAtFirstPointOnAwake;
-    [SerializeField] private int pauseAtEnd = 0;
+    [SerializeField] private float pauseAtEnd = 0;
     [SerializeField] private bool randomizePause = false;
     [SerializeField] private int teleportAtIndex = -1;
 
