@@ -12,7 +12,7 @@ public class SimpleBullet : MonoBehaviour
     [SerializeField] private float topBound, bottomBound; // to check when bullet is off screen
 
     void Start()
-    {
+    {   col = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         speed = baseSpeed;
 

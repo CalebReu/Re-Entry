@@ -61,6 +61,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             CameraShake.Instance.TriggerShake();
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
+    }
       
     public void SetFireRateMod(float newMod)
     {
@@ -76,6 +77,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             GameOver();
             Debug.Log("GAME OVER");
         }
+    }
 
     public void SetBulletSizeMod(float newMod)
     {
@@ -83,18 +85,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     }
     private void GameOver() {
         SceneHandler.Instance.GameOver();
-
-    public void SetBulletSpeedMod(float newMod)
-    {
-        bulletSpeedMod += newMod;
     }
-
-    public void SetBulletSizeMod(float newMod)
-    {
-        bulletSizeMod += newMod;
-    }
-
-
     public void SetBulletSpeedMod(float newMod)
     {
         bulletSpeedMod += newMod;
