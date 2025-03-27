@@ -12,7 +12,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private int lives = 3;
     private float invincibilityTimer; // stores the time (in seconds) that the player is invincible, to avoid taking damage really fast from multiple things at the same time.
     public bool isPlayerInvincible; //stores if the player is currently invincible or not.
-<<<<<<< HEAD
 
     // Increasable stats (1 means no change in stat):
     private float fireRateMod = 1f;
@@ -23,8 +22,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private shotType equipped;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
 
-=======
->>>>>>> 386ce4b79e391471481771e1a019ab95cfd3eea8
     void Start()
     {
         hudPanel.ResetHUD();
@@ -76,7 +73,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private void GameOver() {
         SceneHandler.Instance.GameOver();
     }
-<<<<<<< HEAD
     public void SetWeapon(shotType newWeapon)
     {
         equipped = newWeapon;
@@ -103,6 +99,4 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     }
 
     // OPTIONAL TODO: Upgrade receive animation for juice :)
-=======
->>>>>>> 386ce4b79e391471481771e1a019ab95cfd3eea8
 }

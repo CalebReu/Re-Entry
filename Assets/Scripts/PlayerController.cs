@@ -7,25 +7,24 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private shotType equipped;
-    enum shotType { SIMPLE, TRIPLE, SHOTGUN };
+    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
+
+    private float fireRateMod = 1f;
+    private float bulletSpeedMod = 1f;
+    private float bulletSizeMod = 0.3f;
+    private float damageMod = 1f;
 
     private bool canFire = true;
     private Rigidbody2D rb;
     public GameObject simpleBullet;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 386ce4b79e391471481771e1a019ab95cfd3eea8
     // Increasable stats (1 means no change in stat):
     public float fireRateMod = 1f;
     public float bulletSpeedMod = 1f;
     public float bulletSizeMod = 1f;
-<<<<<<< HEAD
 =======
 >>>>>>> juicin-it
-=======
->>>>>>> 386ce4b79e391471481771e1a019ab95cfd3eea8
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -64,6 +63,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
                 bulletScript.SetSize(1 * bulletSizeMod);
+                bulletScript.SetDamage(1 * damageMod);
                 canFire = false;
                 StartCoroutine(reload(0.5f));
                 break;
@@ -77,6 +77,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(1 * bulletSizeMod);
+                    bulletScript.SetDamage(1 * damageMod);
                 }
                 canFire = false;
                 StartCoroutine(reload(1.2f));
@@ -90,6 +91,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(0.3f * bulletSizeMod);
+                    bulletScript.SetDamage(1 * damageMod);
                 }
                 canFire = false;
                 StartCoroutine(reload(1f));
@@ -102,7 +104,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         rb.linearVelocity = moveDirection * moveSpeed;
     }
 
-<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     public void SetWeapon(shotType newWeapon)
@@ -151,7 +152,5 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     }
 
 >>>>>>> juicin-it
-=======
->>>>>>> 386ce4b79e391471481771e1a019ab95cfd3eea8
 
 }
