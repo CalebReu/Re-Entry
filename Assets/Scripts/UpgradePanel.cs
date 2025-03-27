@@ -20,6 +20,8 @@ public class UpgradePanel : MonoBehaviour
 
     public void Start()
     {
+        Hide();
+
         upgradeList = new GameObject[7];
         upgradeList[0] = fireRate;
         upgradeList[1] = bulletSpeed;
