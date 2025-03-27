@@ -65,7 +65,7 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Hit player with enemy body");
               GameManager.Instance.loseLive(1); // this is hardcoded for now (maybe forever).
-            // TODO: Implement player damage
+           
         }
     }
 }
