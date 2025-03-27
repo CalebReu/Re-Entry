@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 public class SimpleBullet : MonoBehaviour
 {
     [SerializeField] private float baseSpeed = 5f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float damage = 1;
     private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D col;
@@ -42,7 +42,7 @@ public class SimpleBullet : MonoBehaviour
     }
 
     // Sets damage of bullet
-    public void SetDamage(int dmg)
+    public void SetDamage(float dmg)
     {
         damage = dmg;
     }
@@ -68,7 +68,7 @@ public class SimpleBullet : MonoBehaviour
             Debug.Log("Hit enemy");
             GameManager.Instance.UpdateScore();
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
-            enemy.Damage(damage);
+            enemy.Damage((int)damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
