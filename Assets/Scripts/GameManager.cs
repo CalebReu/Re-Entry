@@ -12,16 +12,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private int lives = 3;
     private float invincibilityTimer; // stores the time (in seconds) that the player is invincible, to avoid taking damage really fast from multiple things at the same time.
     public bool isPlayerInvincible; //stores if the player is currently invincible or not.
-
-    // Increasable stats (1 means no change in stat):
-    private float fireRateMod = 1f;
-    private float bulletSpeedMod = 1f;
-    private float bulletSizeMod = 1f;
-    private float damageMod = 1f;
-
-    private shotType equipped;
-    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
-
     void Start()
     {
         hudPanel.ResetHUD();
@@ -49,10 +39,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score++;
         hudPanel.UpdateScore(score);
     }
-    public void SetWeapon(shotType newWeapon)
-    {
-        equipped = newWeapon;
-    }
 
     public void loseLive(float dmg) { // calculates the new life total then calls the private function for updating the lives
         int newTotal = (int)Mathf.Max(lives - dmg, 0); // no negative values here!
@@ -63,10 +49,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             CameraShake.Instance.TriggerShake();
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
-      
-    public void SetFireRateMod(float newMod)
-    {
-        fireRateMod += newMod;
     }
       
     
@@ -78,17 +60,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             GameOver();
             Debug.Log("GAME OVER");
         }
-
-    public void SetBulletSizeMod(float newMod)
-    {
-        bulletSizeMod += newMod;
     }
     private void GameOver() {
         SceneHandler.Instance.GameOver();
-
-    public void SetBulletSpeedMod(float newMod)
-    {
-        bulletSpeedMod += newMod;
     }
 
     public void SetBulletSizeMod(float newMod)
@@ -103,10 +77,4 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         bulletSpeedMod += newMod;
     }
-    public void SetDamageMod(float newMod)
-    {
-        damageMod += newMod;
-    }
-
-    // OPTIONAL TODO: Upgrade receive animation for juice :)
 }
