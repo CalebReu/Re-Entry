@@ -5985,6 +5985,7 @@ GameObject:
   - component: {fileID: 1224633045}
   - component: {fileID: 1224633044}
   - component: {fileID: 1224633043}
+  - component: {fileID: 1224633047}
   m_Layer: 5
   m_Name: UpgradeScreen
   m_TagString: Untagged
@@ -6075,6 +6076,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1224633047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224633042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f9ce03ee9d6f540a30591fd4211cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: {fileID: 0}
+  bulletSpeed: {fileID: 0}
+  bulletSize: {fileID: 0}
+  damage: {fileID: 0}
+  shotgun: {fileID: 0}
+  triple: {fileID: 0}
+  single: {fileID: 0}
 --- !u!1 &1308780930
 GameObject:
   m_ObjectHideFlags: 0
