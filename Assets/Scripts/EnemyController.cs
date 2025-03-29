@@ -57,6 +57,7 @@ public class EnemyController : MonoBehaviour
         {
             // enemy dead whomp whomp
             GameManager.Instance.UpdateEnemyCount();
+            AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
             Destroy(gameObject);
         }
     }
