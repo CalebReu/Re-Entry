@@ -55,8 +55,6 @@ public class EnemyController : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            // enemy dead whomp whomp
-            GameManager.Instance.UpdateEnemyCount();
             Destroy(gameObject);
         }
     }

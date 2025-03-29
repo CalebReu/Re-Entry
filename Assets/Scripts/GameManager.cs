@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : SingletonMonoBehavior<GameManager>
@@ -16,10 +13,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private float invincibilityTimer; // stores the time (in seconds) that the player is invincible, to avoid taking damage really fast from multiple things at the same time.
     public bool isPlayerInvincible; //stores if the player is currently invincible or not.
       // Increasable stats (1 means no change in stat):
-
-    [SerializeField] private int currNumEnemies;
-
-    // Increasable stats (1 means no change in stat):
     private float fireRateMod = 1f;
     private float bulletSpeedMod = 1f;
     private float bulletSizeMod = 1f;
@@ -27,12 +20,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     private shotType equipped;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
-
-    // start gets called when new level loaded
     void Start()
     {
-        hudPanel.ResetHUD(); // note this resets score/lives @ start of every level, do we want this to happen???
-        currNumEnemies = countNumEnemiesInScene();
+        hudPanel.ResetHUD();
     }
     private void Update()
     {
@@ -57,35 +47,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score++;
         hudPanel.UpdateScore(score);
     }
-
-    // SCENE TRANSITION METHODS
-    public void UpdateEnemyCount()
-    {
-        currNumEnemies--;
-
-        if (isLevelCompleted())
-        {
-            SceneHandler.Instance.NextLevel();
-        }
-    }
-
-    private bool isLevelCompleted()
-    {
-        if (currNumEnemies == 0)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    private int countNumEnemiesInScene()
-    {
-        List<GameObject> enemies = new List<GameObject>();
-        enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
-        return enemies.Count;
-    }
-
-    // UPGRADE METHODS
     public void SetWeapon(shotType newWeapon)
     {
         equipped = newWeapon;
