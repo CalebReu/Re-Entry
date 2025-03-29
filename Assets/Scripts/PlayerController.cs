@@ -15,7 +15,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     [SerializeField] private shotType equipped;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
 
-    private float fireRateMod = 1f;
+    [SerializeField] private float fireRateMod = 1f;
     private float bulletSpeedMod = 1f;
     private float bulletSizeMod = 0.3f;
     private float damageMod = 1f;
