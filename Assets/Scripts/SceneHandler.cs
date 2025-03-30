@@ -30,9 +30,9 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         LEVEL1 = 1,
         LEVEL2 = 2,
         LEVEL3 = 3,
-        GAME_OVER = 4,
-        WIN_SCREEN = 5,
-        UPGRADE_SCREEN = 6;
+        UPGRADE_SCREEN = 4,
+        GAME_OVER = 5,
+        WIN_SCREEN = 6;
 
     private Dictionary<int, string> scenes = new Dictionary<int, string>
     {

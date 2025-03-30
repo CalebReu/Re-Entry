@@ -113,8 +113,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         hudPanel.UpdateLives(lives);
         if (lives == 0) //checks for GameOver whenever Lives are updated, might need to put this in the Update Function to make it more reliable.
         {
-            GameOver();
             Debug.Log("GAME OVER");
+            GameOver();
+           
         }
     }
 
