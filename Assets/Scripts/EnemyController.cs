@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float bulletSpeedModifier;
     [SerializeField] private int startingHealth;
+    [SerializeField] private float minShootDistance;
     private float health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
@@ -42,6 +43,8 @@ public class EnemyController : MonoBehaviour
 
     public void Fire()
     {
+        if (transform.position.y <= Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + minShootDistance) return;
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         SimpleBullet simpleBullet = bullet.GetComponent<SimpleBullet>();
         simpleBullet.SetEnemy();

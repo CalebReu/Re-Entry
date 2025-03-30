@@ -88,6 +88,7 @@ MonoBehaviour:
   fireRate: 0.2
   bulletSpeedModifier: 1
   startingHealth: 1
+  minShootDistance: 3.5
 --- !u!114 &2757424372266732462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ MonoBehaviour:
   LoopThroughPoints: 0
   StartAtFirstPointOnAwake: 1
   pauseAtEnd: 0
+  randomizePause: 0
   teleportAtIndex: -1
 --- !u!1 &7501000109404262928
 GameObject:
