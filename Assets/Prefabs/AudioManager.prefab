@@ -50,6 +50,7 @@ MonoBehaviour:
   MusicSource: {fileID: 4422750424955781297}
   shootClip: {fileID: 8300000, guid: c5dc492283b66344a8751d2c9704e6d9, type: 3}
   explosionClip: {fileID: 8300000, guid: faa42e81a72e0f1459e40777ea97c316, type: 3}
+  hitClip: {fileID: 8300000, guid: da713e5005ea680408f9e39ad39d0d5c, type: 3}
   musicClip: {fileID: 8300000, guid: f4b438844e4e53848ac5d85f74359cd1, type: 3}
 --- !u!82 &4987877356575680563
 AudioSource:
