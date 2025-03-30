@@ -12,7 +12,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private HUDPanel hudPanel;
     private int score = 0;
     private int lives = 3;
-    
+
     [SerializeField] private int currNumEnemies;
 
     // Increasable stats (1 means no change in stat):
@@ -23,7 +23,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     private shotType equipped;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
-    
+
     // start gets called when new level loaded
     void Start()
     {
