@@ -13,9 +13,9 @@ Responsible for:
 - Loading the correct scene
 
 Scenes we need (TODO):
-- TitleScreen -> Play/Exit
-- Level1
-- Level2
+- TitleScreen -> Play/Exit DONE
+- Level1 DONE
+- Level2 DONE
 - Level3
 - UpgradeScreen
 - GameOver -> Try Again/Exit
@@ -75,6 +75,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         {
             // advance to next level
             currScene++;
+            loadScene(currScene);
             // but first, get upgrade
             //loadScene(UPGRADE_SCREEN);
             // I'm doing it this way so that when we leave upgrade screen, currScene still represents the current level to be loaded
