@@ -636,11 +636,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-<<<<<<< HEAD
   - {fileID: 1303125925}
-=======
-  - {fileID: 8838026369231711526}
->>>>>>> parent of 1c484d6 (Update Level_1.unity)
   m_Father: {fileID: 1224633046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1136,7 +1132,6 @@ GameObject:
   - component: {fileID: 1224633045}
   - component: {fileID: 1224633044}
   - component: {fileID: 1224633043}
-  - component: {fileID: 1224633047}
   m_Layer: 5
   m_Name: UpgradeScreen
   m_TagString: Untagged
@@ -1359,9 +1354,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1511815803}
   - {fileID: 84888362}
-  m_Father: {fileID: 1184820325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2677,7 +2670,6 @@ PrefabInstance:
 --- !u!224 &8838026369231711526 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8240856341161590585, guid: 988dbd66d4b4ddb46a383f1434e054d3, type: 3}
-  m_PrefabInstance: {fileID: 6457183268847443499}
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> parent of f05aa45 (Reapply "Merge branch 'main' into Jbranch_test")
