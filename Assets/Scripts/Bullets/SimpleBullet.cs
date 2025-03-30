@@ -68,15 +68,17 @@ public class SimpleBullet : MonoBehaviour
             GameManager.Instance.UpdateScore();
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
             enemy.Damage(damage);
+            AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             Debug.Log("Hit player");
             GameManager.Instance.loseLive(damage);
+            // TODO: Implement player damage
+            AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
             Destroy(gameObject);
         }
-        // TODO: Explosion FX go here
 
     }
 

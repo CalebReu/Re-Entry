@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1871096068944166555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -3.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88,6 +88,7 @@ MonoBehaviour:
   fireRate: 0.2
   bulletSpeedModifier: 1
   startingHealth: 1
+  minShootDistance: 3.5
 --- !u!114 &2757424372266732462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ MonoBehaviour:
   LoopThroughPoints: 0
   StartAtFirstPointOnAwake: 1
   pauseAtEnd: 0
+  randomizePause: 0
   teleportAtIndex: -1
 --- !u!1 &7501000109404262928
 GameObject:
