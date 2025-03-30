@@ -67,6 +67,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit player with enemy body");
+            AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
             // TODO: Implement player damage
         }
     }

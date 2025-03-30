@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip shootClip;
     public AudioClip explosionClip;
+    public AudioClip hitClip;
     public AudioClip musicClip;
 
     private void Awake()
