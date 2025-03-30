@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float bulletSpeedModifier;
     [SerializeField] private int startingHealth;
-    [SerializeField] private float minShootDistance;
     private float health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
@@ -43,15 +42,12 @@ public class EnemyController : MonoBehaviour
 
     public void Fire()
     {
-        if (transform.position.y <= Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + minShootDistance) return;
-
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         SimpleBullet simpleBullet = bullet.GetComponent<SimpleBullet>();
         simpleBullet.SetEnemy();
         simpleBullet.setAngle(180);
         simpleBullet.SetSpeed(bulletSpeedModifier);
         simpleBullet.SetSize(0.3f);
-        AudioManager.instance.PlaySound(AudioManager.instance.enemyShootClip);
 
     }
     public void Damage(float damage)
@@ -61,7 +57,6 @@ public class EnemyController : MonoBehaviour
         {
             // enemy dead whomp whomp
             GameManager.Instance.UpdateEnemyCount();
-            AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
             Destroy(gameObject);
         }
     }
@@ -73,8 +68,6 @@ public class EnemyController : MonoBehaviour
             Debug.Log("Hit player with enemy body");
               GameManager.Instance.loseLive(1); // this is hardcoded for now (maybe forever).
            
-            AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
-            // TODO: Implement player damage
         }
     }
 }
