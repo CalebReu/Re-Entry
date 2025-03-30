@@ -92,7 +92,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     public void GameOver()
     {
         currScene = GAME_OVER;
-        //loadScene(currScene);
+        loadScene(currScene);
     }
     // helper methods
     private void loadScene(int index)
