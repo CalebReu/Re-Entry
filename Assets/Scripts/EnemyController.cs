@@ -71,6 +71,8 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit player with enemy body");
+              GameManager.Instance.loseLive(1); // this is hardcoded for now (maybe forever).
+           
             AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
             // TODO: Implement player damage
         }

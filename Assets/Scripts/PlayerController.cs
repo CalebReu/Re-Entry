@@ -5,6 +5,7 @@ using System.Collections;
 
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
+    // delete this comment
     [SerializeField] private float moveSpeed;
 
     // for bounding movement to within screen bounds only
