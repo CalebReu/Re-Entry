@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 481579483467446443}
   - component: {fileID: 6292994226416401922}
   - component: {fileID: 4561085740222991005}
-  - component: {fileID: 3390204647090104049}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -80,8 +79,10 @@ MonoBehaviour:
   leftBound: 0
   rightBound: 0
   equipped: 0
-  fireRateMod: 1
   simpleBullet: {fileID: 8505558168145713895, guid: 0de030f53ff202e499537e34f5d70762, type: 3}
+  fireRateMod: 1
+  bulletSpeedMod: 1
+  bulletSizeMod: 0.3
 --- !u!114 &6292994226416401922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,18 +147,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.8476562, y: 1.9749478}
   m_EdgeRadius: 0
---- !u!114 &3390204647090104049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198836219313282560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c09da25f099e89d4786c0c7b25d37841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6104778203214820595
 GameObject:
   m_ObjectHideFlags: 0
