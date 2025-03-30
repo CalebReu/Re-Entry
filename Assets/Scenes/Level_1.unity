@@ -636,11 +636,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-<<<<<<< HEAD
   - {fileID: 1303125925}
-=======
-  - {fileID: 8838026369231711526}
->>>>>>> parent of 1c484d6 (Update Level_1.unity)
   m_Father: {fileID: 1224633046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2535,7 +2531,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 988dbd66d4b4ddb46a383f1434e054d3, type: 3}
 --- !u!1001 &8150784216270348000
 PrefabInstance:
@@ -2679,8 +2674,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8240856341161590585, guid: 988dbd66d4b4ddb46a383f1434e054d3, type: 3}
   m_PrefabInstance: {fileID: 6457183268847443499}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> parent of f05aa45 (Reapply "Merge branch 'main' into Jbranch_test")
   m_SourcePrefab: {fileID: 100100000, guid: b1afe091b6a67a3429502415662a4223, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
