@@ -71,6 +71,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 bulletScript.SetSpeed(bulletSpeedMod);
                 bulletScript.SetSize(1 * bulletSizeMod);
                 bulletScript.SetDamage(1 * damageMod);
+                AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
                 StartCoroutine(reload(0.5f));
                 break;
@@ -86,6 +87,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.SetSize(1 * bulletSizeMod);
                     bulletScript.SetDamage(1 * damageMod);
                 }
+                AudioManager.instance.PlaySound(AudioManager.instance.playerTripleShotClip);
                 canFire = false;
                 StartCoroutine(reload(1.2f));
                 break;
@@ -100,6 +102,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.SetSize(0.3f * bulletSizeMod);
                     bulletScript.SetDamage(1 * damageMod);
                 }
+                AudioManager.instance.PlaySound(AudioManager.instance.playerShotgunClip);
                 canFire = false;
                 StartCoroutine(reload(1f));
                 break;
