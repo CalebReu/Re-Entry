@@ -51,6 +51,7 @@ public class EnemyController : MonoBehaviour
         simpleBullet.setAngle(180);
         simpleBullet.SetSpeed(bulletSpeedModifier);
         simpleBullet.SetSize(0.3f);
+        AudioManager.instance.PlaySound(AudioManager.instance.enemyShootClip);
 
     }
     public void Damage(float damage)

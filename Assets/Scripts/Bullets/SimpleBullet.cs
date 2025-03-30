@@ -16,7 +16,6 @@ public class SimpleBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
         speed = baseSpeed;
-        AudioManager.instance.PlaySound(AudioManager.instance.shootClip);
 
         if (Camera.main != null)
         {
