@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clips")]
 
     public AudioClip playerShootClip;
+    public AudioClip playerTripleShotClip;
+    public AudioClip playerShotgunClip;
     public AudioClip enemyShootClip;
     public AudioClip explosionClip;
     public AudioClip hitClip;
