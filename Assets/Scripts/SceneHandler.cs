@@ -74,6 +74,11 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         currScene = LEVEL1;
         loadScene(currScene);
     }
+    public void MainMenu()
+    {
+        currScene = TITLE_SCREEN;
+        loadScene(currScene);
+    }
 
     public void ExitGame()
     {
@@ -100,14 +105,14 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         {
             // end of the game
             currScene = WIN_SCREEN;
-            //loadScene(currScene);
+            loadScene(currScene);
         }
     }
 
     public void GameOver()
     {
         currScene = GAME_OVER;
-        //loadScene(currScene);
+        loadScene(currScene);
     }
 
     public void UpgradeScreen()
