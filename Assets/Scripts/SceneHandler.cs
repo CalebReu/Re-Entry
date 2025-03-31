@@ -90,7 +90,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         {
             // end of the game
             currScene = WIN_SCREEN;
-            //loadScene(currScene);
+            loadScene(currScene);
         }
     }
 
