@@ -20,7 +20,6 @@ public class UpgradePanel : MonoBehaviour
 
     public void Start()
     {
-        Hide();
         upgradeList = new GameObject[7];
         upgradeList[0] = fireRate;
         upgradeList[1] = bulletSpeed;
@@ -29,15 +28,8 @@ public class UpgradePanel : MonoBehaviour
         upgradeList[4] = shotgun;
         upgradeList[5] = triple;
         upgradeList[6] = single;
-    }
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
 
-    public void Show()
-    {
-        gameObject.SetActive(true);
+        GenerateUpgrades();
     }
 
     public void GenerateUpgrades()
@@ -49,9 +41,17 @@ public class UpgradePanel : MonoBehaviour
             Destroy(oldUpgrade);
         }
 
+
+        // Generates empty array and fills it with -1
         int[] arr = new int[3];
+        for (int k = 0; k < 3; k++)
+        {
+            arr[k] = -1;
+        }
+
         int[] picked = GenerateNumbers(arr, 0);
 
+        // Instantiates each upgrade panel
         foreach (int i in picked)
         {
             GameObject upgrade = Instantiate(upgradeList[i], panel);
@@ -59,11 +59,11 @@ public class UpgradePanel : MonoBehaviour
         
 
     }
-
     private int[] GenerateNumbers(int[] picked, int i)
     {
         if (i == 3) return picked;
         int random = Mathf.RoundToInt(Random.Range(0, 7));
+        Debug.Log(random);
         if (picked.Contains(random) == false)
         {
             picked[i] = random;

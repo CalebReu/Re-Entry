@@ -24,6 +24,16 @@ Scenes we need (TODO):
 */
 public class SceneHandler : SingletonMonoBehavior<SceneHandler>
 {
+    // Player stat varibles -------------------------------------------
+    // Increasable stats (1 means no change in stat):
+    public float fireRateMod = 1f;
+    public float bulletSpeedMod = 1f;
+    public float bulletSizeMod = 1f;
+    public float damageMod = 1f;
+    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
+    public shotType equipped;
+
+
     // Stuff to store/organize scene info -----------------------------------
     private const int
         TITLE_SCREEN = 0,
@@ -52,7 +62,12 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     protected override void Awake()
     {
         base.Awake(); // Singleton behavior
-        currScene = TITLE_SCREEN; // initialization
+        currScene = TITLE_SCREEN; // initialization -------
+        fireRateMod = 1f;
+        damageMod = 1;
+        bulletSizeMod = 0.25f;
+        bulletSpeedMod = 1f;
+        equipped = shotType.SIMPLE;
     }
     public void StartGame()
     {
@@ -99,13 +114,51 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         currScene = GAME_OVER;
         loadScene(currScene);
     }
-    // helper methods
+
+    public void UpgradeScreen()
+    {
+        loadScene(UPGRADE_SCREEN);
+        // Does not update currScene so that when NextLevel() is called it won't break.
+    }
+
+    public void checkVictoryScreen()
+    {
+        if (currScene < LEVEL3)
+        {
+            UpgradeScreen();
+        } else
+        {
+            NextLevel();
+        }
+    }
+
+    // UPGRADE METHODS --------------------------------------------------
+    public void SetWeapon(shotType newWeapon)
+    {
+        equipped = newWeapon;
+    }
+    public void SetFireRateMod(float newMod)
+    {
+        fireRateMod += newMod;
+    }
+
+    // helper methods -------------------------------------------------
     private void loadScene(int index)
     {
         SceneManager.LoadScene(scenes[index]);
     }
-
-
+    public void SetBulletSizeMod(float newMod)
+    {
+        bulletSizeMod += newMod;
+    }
+    public void SetBulletSpeedMod(float newMod)
+    {
+        bulletSpeedMod += newMod;
+    }
+    public void SetDamageMod(float newMod)
+    {
+        damageMod += newMod;
+    }
 }
 
 
