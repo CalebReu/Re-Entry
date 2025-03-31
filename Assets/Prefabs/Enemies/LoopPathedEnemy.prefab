@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce8669e5bec03349970dc159cbf6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 6
+  MovementSpeed: 8
   PathContainer: {fileID: 8174952529669722020}
   MovementStyle: 0
   LoopThroughPoints: 1

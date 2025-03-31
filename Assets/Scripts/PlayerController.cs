@@ -5,6 +5,7 @@ using System.Collections;
 
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
+    // delete this comment
     [SerializeField] private float moveSpeed;
 
     // for bounding movement to within screen bounds only
@@ -26,6 +27,12 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void Start()
     {
+        bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
+        bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
+        damageMod = SceneHandler.Instance.damageMod;
+        fireRateMod = SceneHandler.Instance.fireRateMod;
+        equipped = (shotType) SceneHandler.Instance.equipped;
+
         rb = GetComponent<Rigidbody2D>();
         playerBoundingBox = GetComponent<BoxCollider2D>();
 

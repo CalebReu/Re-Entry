@@ -12,9 +12,8 @@ public class SimpleBullet : MonoBehaviour
     [SerializeField] private float topBound, bottomBound; // to check when bullet is off screen
 
     void Start()
-    {
+    {   col = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<CircleCollider2D>();
         speed = baseSpeed;
 
         if (Camera.main != null)
@@ -75,6 +74,7 @@ public class SimpleBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             Debug.Log("Hit player");
+            GameManager.Instance.loseLive(damage);
             // TODO: Implement player damage
             AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
             Destroy(gameObject);
