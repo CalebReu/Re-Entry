@@ -20,12 +20,12 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int currNumEnemies;
 
     // Increasable stats (1 means no change in stat):
-    private float fireRateMod = 1f;
-    private float bulletSpeedMod = 1f;
-    private float bulletSizeMod = 1f;
-    private float damageMod = 1f;
+    public float fireRateMod = 1f;
+    public float bulletSpeedMod = 1f;
+    public float bulletSizeMod = 1f;
+    public float damageMod = 1f;
 
-    private shotType equipped;
+    public shotType equipped;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
 
     // start gets called when new level loaded
@@ -65,7 +65,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
         if (isLevelCompleted())
         {
-            SceneHandler.Instance.NextLevel();
+            SceneHandler.Instance.UpgradeScreen();
         }
     }
 

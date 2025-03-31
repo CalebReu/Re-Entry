@@ -37,7 +37,10 @@ public class UpgradeButton : MonoBehaviour
                 break;
         }
 
-        // After upgrade is performed, moves to next level.
-        // gameManager.NextLevel()
+        Debug.Log(modType);
+        Debug.Log(modAmount);
+
+        SceneHandler sceneHandler = SceneHandler.Instance;
+        sceneHandler.NextLevel();
     }
 }

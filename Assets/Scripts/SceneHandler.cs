@@ -94,13 +94,17 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         currScene = GAME_OVER;
         //loadScene(currScene);
     }
+
+    public void UpgradeScreen()
+    {
+        loadScene(UPGRADE_SCREEN);
+        // Does not update currScene so that when NextLevel() is called it won't break.
+    }
     // helper methods
     private void loadScene(int index)
     {
         SceneManager.LoadScene(scenes[index]);
     }
-
-
 }
 
 

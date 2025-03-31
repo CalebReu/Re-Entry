@@ -20,7 +20,6 @@ public class UpgradePanel : MonoBehaviour
 
     public void Start()
     {
-        Hide();
         upgradeList = new GameObject[7];
         upgradeList[0] = fireRate;
         upgradeList[1] = bulletSpeed;
@@ -29,15 +28,8 @@ public class UpgradePanel : MonoBehaviour
         upgradeList[4] = shotgun;
         upgradeList[5] = triple;
         upgradeList[6] = single;
-    }
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
 
-    public void Show()
-    {
-        gameObject.SetActive(true);
+        GenerateUpgrades();
     }
 
     public void GenerateUpgrades()
@@ -59,7 +51,6 @@ public class UpgradePanel : MonoBehaviour
         
 
     }
-
     private int[] GenerateNumbers(int[] picked, int i)
     {
         if (i == 3) return picked;
