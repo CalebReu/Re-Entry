@@ -56,7 +56,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
         if (isLevelCompleted())
         {
-            SceneHandler.Instance.UpgradeScreen();
+            SceneHandler.Instance.checkVictoryScreen();
         }
     }
 

@@ -116,6 +116,17 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         // Does not update currScene so that when NextLevel() is called it won't break.
     }
 
+    public void checkVictoryScreen()
+    {
+        if (currScene < LEVEL3)
+        {
+            UpgradeScreen();
+        } else
+        {
+            NextLevel();
+        }
+    }
+
     // UPGRADE METHODS --------------------------------------------------
     public void SetWeapon(shotType newWeapon)
     {
