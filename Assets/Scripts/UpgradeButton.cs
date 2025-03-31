@@ -9,38 +9,34 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private float modAmount;
     public void DoUpgrade()
     {
-        GameManager gameManager = GameManager.Instance;
+        SceneHandler sceneManager = SceneHandler.Instance;
         Debug.Log(modType);
         Debug.Log(modAmount);
         switch (modType)
         {
             case Modifier.DAMAGE:
-                gameManager.SetDamageMod(modAmount);
+                sceneManager.SetDamageMod(modAmount);
                 break;
             case Modifier.BULLET_SPEED:
-                gameManager.SetBulletSpeedMod(modAmount);
+                sceneManager.SetBulletSpeedMod(modAmount);
                 break;
             case Modifier.BULLET_SIZE:
-                gameManager.SetBulletSizeMod(modAmount);
+                sceneManager.SetBulletSizeMod(modAmount);
                 break;
             case Modifier.FIRE_RATE:
-                gameManager.SetFireRateMod(modAmount);
+                sceneManager.SetFireRateMod(modAmount);
                 break;
             case Modifier.SIMPLE:
-                gameManager.SetWeapon(GameManager.shotType.SIMPLE);
+                sceneManager.SetWeapon(SceneHandler.shotType.SIMPLE);
                 break;
             case Modifier.TRIPLE:
-                gameManager.SetWeapon(GameManager.shotType.TRIPLE);
+                sceneManager.SetWeapon(SceneHandler.shotType.TRIPLE);
                 break;
             case Modifier.SHOTGUN:
-                gameManager.SetWeapon(GameManager.shotType.SHOTGUN);
+                sceneManager.SetWeapon(SceneHandler.shotType.SHOTGUN);
                 break;
         }
 
-        Debug.Log(modType);
-        Debug.Log(modAmount);
-
-        SceneHandler sceneHandler = SceneHandler.Instance;
-        sceneHandler.NextLevel();
+        sceneManager.NextLevel();
     }
 }

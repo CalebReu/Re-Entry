@@ -19,15 +19,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     [SerializeField] private int currNumEnemies;
 
-    // Increasable stats (1 means no change in stat):
-    public float fireRateMod = 1f;
-    public float bulletSpeedMod = 1f;
-    public float bulletSizeMod = 1f;
-    public float damageMod = 1f;
-
-    public shotType equipped;
-    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
-
     // start gets called when new level loaded
     void Start()
     {
@@ -85,11 +76,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         return enemies.Count;
     }
 
-    // UPGRADE METHODS
-    public void SetWeapon(shotType newWeapon)
-    {
-        equipped = newWeapon;
-    }
 
     public void loseLive(float dmg) { // calculates the new life total then calls the private function for updating the lives
         int newTotal = (int)Mathf.Max(lives - dmg, 0); // no negative values here!
@@ -101,13 +87,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
     }
-      
-    public void SetFireRateMod(float newMod)
-    {
-        fireRateMod += newMod;
-    }
-      
-    
     private void UpdateLives(int lives) {
         this.lives = lives;
         hudPanel.UpdateLives(lives);
@@ -117,22 +96,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             Debug.Log("GAME OVER");
         }
     }
-
-    public void SetBulletSizeMod(float newMod)
-    {
-        bulletSizeMod += newMod;
-    }
     private void GameOver() {
         SceneHandler.Instance.GameOver();
     }
-    public void SetBulletSpeedMod(float newMod)
-    {
-        bulletSpeedMod += newMod;
-    }
-    public void SetDamageMod(float newMod)
-    {
-        damageMod += newMod;
-    }
-
-    // OPTIONAL TODO: Upgrade receive animation for juice :)
 }

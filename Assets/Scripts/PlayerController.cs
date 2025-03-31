@@ -27,11 +27,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void Start()
     {
-        bulletSpeedMod = GameManager.Instance.bulletSpeedMod;
-        bulletSizeMod = GameManager.Instance.bulletSizeMod;
-        damageMod = GameManager.Instance.damageMod;
-        fireRateMod = GameManager.Instance.fireRateMod;
-        equipped = (shotType) GameManager.Instance.equipped;
+        bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
+        bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
+        damageMod = SceneHandler.Instance.damageMod;
+        fireRateMod = SceneHandler.Instance.fireRateMod;
+        equipped = (shotType) SceneHandler.Instance.equipped;
 
         rb = GetComponent<Rigidbody2D>();
         playerBoundingBox = GetComponent<BoxCollider2D>();
