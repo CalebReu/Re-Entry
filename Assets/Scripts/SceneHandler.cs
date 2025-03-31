@@ -108,6 +108,9 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
             loadScene(currScene);
         }
     }
+    public int getScene() {
+        return currScene; // returns the current scene 
+    }
 
     public void GameOver()
     {
@@ -143,7 +146,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     }
 
     // helper methods -------------------------------------------------
-    private void loadScene(int index)
+    public void loadScene(int index)
     {
         SceneManager.LoadScene(scenes[index]);
     }
