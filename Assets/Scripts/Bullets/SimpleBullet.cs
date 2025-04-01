@@ -8,11 +8,12 @@ public class SimpleBullet : MonoBehaviour
     [SerializeField] private float damage = 1f;
     private float speed;
     private Rigidbody2D rb;
-    private CircleCollider2D col;
+    private CapsuleCollider2D col;
     [SerializeField] private float topBound, bottomBound; // to check when bullet is off screen
 
     void Start()
-    {   col = GetComponent<CircleCollider2D>();
+    {
+        col = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         speed = baseSpeed;
 
@@ -87,7 +88,7 @@ public class SimpleBullet : MonoBehaviour
     private bool isOffScreen()
     {
         Vector3 pos = transform.position;
-        float bulletHeight = col.radius; // already divided in 1/2 since radius
+        float bulletHeight = col.size.y; // already divided in 1/2 since radius
 
         return (pos.y >= topBound + bulletHeight) ||
         (pos.y <= bottomBound - bulletHeight);
