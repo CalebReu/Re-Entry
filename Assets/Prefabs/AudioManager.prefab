@@ -57,6 +57,7 @@ MonoBehaviour:
   musicClip: {fileID: 8300000, guid: f4b438844e4e53848ac5d85f74359cd1, type: 3}
   gameOverMusicClip: {fileID: 8300000, guid: 9d56f3c2fe63e5f41a07a34e85e793ff, type: 3}
   victoryMusicClip: {fileID: 8300000, guid: 34e0b59afb3a109419b6dc491a312189, type: 3}
+  buttonClickClip: {fileID: 8300000, guid: f640e582d1abbb948b8171ed5314237b, type: 3}
 --- !u!82 &4987877356575680563
 AudioSource:
   m_ObjectHideFlags: 0

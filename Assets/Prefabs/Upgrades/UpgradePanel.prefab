@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 3867837100657514339}
   - component: {fileID: 131604840707698825}
   - component: {fileID: 1937135986400617818}
+  - component: {fileID: 785267038661623488}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -498,6 +499,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &785267038661623488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835018253835043060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09366241fe4b83940af0de1ab4890fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClickClip: {fileID: 8300000, guid: 35ac1ecebbd1ede4a8d45b05e8990032, type: 3}
 --- !u!1 &7924280613456500958
 GameObject:
   m_ObjectHideFlags: 0

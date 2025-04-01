@@ -80,6 +80,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     {
         currScene = TITLE_SCREEN;
         loadScene(currScene);
+        AudioManager.instance.PlayMusic(AudioManager.instance.musicClip);
     }
 
     public void ExitGame()
@@ -106,11 +107,11 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         else
         {
             // end of the game
-            currScene = WIN_SCREEN;
-            loadScene(currScene);
+            Victory();
         }
     }
-    public int getScene() {
+    public int getScene()
+    {
         return currScene; // returns the current scene 
     }
 
@@ -118,6 +119,13 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     {
         currScene = GAME_OVER;
         loadScene(currScene);
+        AudioManager.instance.PlayMusic(AudioManager.instance.gameOverMusicClip);
+    }
+    public void Victory()
+    {
+        currScene = WIN_SCREEN;
+        loadScene(currScene);
+        AudioManager.instance.PlayMusic(AudioManager.instance.victoryMusicClip);
     }
     public void saveStats(int score, int lives) { 
         // saves the current score and lives so they perist between scenes.
@@ -140,7 +148,8 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         if (currScene < LEVEL3)
         {
             UpgradeScreen();
-        } else
+        }
+        else
         {
             NextLevel();
         }

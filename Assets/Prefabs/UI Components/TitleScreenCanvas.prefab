@@ -848,6 +848,7 @@ GameObject:
   - component: {fileID: 2421383817275506150}
   - component: {fileID: 3307064284437365182}
   - component: {fileID: 140562035108992888}
+  - component: {fileID: 69316792862505946}
   m_Layer: 5
   m_Name: TitleScreenCanvas
   m_TagString: Untagged
@@ -940,3 +941,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &69316792862505946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904886047311362316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09366241fe4b83940af0de1ab4890fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonClickClip: {fileID: 8300000, guid: f640e582d1abbb948b8171ed5314237b, type: 3}
