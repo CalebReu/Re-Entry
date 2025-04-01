@@ -60,6 +60,13 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             shells++;
             ShellsUI.SetShells(shells);
             canFire = true;
+            if (shells == 5)
+            {
+                AudioManager.instance.PlaySound(AudioManager.instance.PumpActionClip);
+            }
+            else {
+                AudioManager.instance.PlaySound(AudioManager.instance.LoadShellClip);
+            }
         }
         if(shells<5){
             StartCoroutine(Shellreload(reloadTime));

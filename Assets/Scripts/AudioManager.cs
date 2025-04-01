@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerShotgunClip;
     public AudioClip enemyShootClip;
     public AudioClip explosionClip;
+    public AudioClip LoadShellClip;
+    public AudioClip PumpActionClip;
     public AudioClip hitClip;
     public AudioClip musicClip;
     public AudioClip gameOverMusicClip;

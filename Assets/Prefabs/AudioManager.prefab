@@ -53,11 +53,12 @@ MonoBehaviour:
   playerShotgunClip: {fileID: 8300000, guid: f03917a44088d0240bfad283e37c19d3, type: 3}
   enemyShootClip: {fileID: 8300000, guid: 101142af020c29c45b5885cd7612e84c, type: 3}
   explosionClip: {fileID: 8300000, guid: faa42e81a72e0f1459e40777ea97c316, type: 3}
+  LoadShellClip: {fileID: 8300000, guid: d2497af2479e6b941bde4b7f6bbaa848, type: 3}
+  PumpActionClip: {fileID: 8300000, guid: 19deaf8a74b897d409e0bb039ed32ae9, type: 3}
   hitClip: {fileID: 8300000, guid: da713e5005ea680408f9e39ad39d0d5c, type: 3}
   musicClip: {fileID: 8300000, guid: f4b438844e4e53848ac5d85f74359cd1, type: 3}
   gameOverMusicClip: {fileID: 8300000, guid: 9d56f3c2fe63e5f41a07a34e85e793ff, type: 3}
   victoryMusicClip: {fileID: 8300000, guid: 34e0b59afb3a109419b6dc491a312189, type: 3}
-  buttonClickClip: {fileID: 8300000, guid: f640e582d1abbb948b8171ed5314237b, type: 3}
 --- !u!82 &4987877356575680563
 AudioSource:
   m_ObjectHideFlags: 0
