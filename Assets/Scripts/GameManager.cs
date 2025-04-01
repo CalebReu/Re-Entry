@@ -22,12 +22,15 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     // start gets called when new level loaded
     void Start()
     {
-        hudPanel.ResetHUD(); // note this resets score/lives @ start of every level, do we want this to happen???
+        score = SceneHandler.Instance.getStats()[0]; // retreives the score saved in the scenehandler
+        lives = SceneHandler.Instance.getStats()[1] ==0? MAX_LIVES: SceneHandler.Instance.getStats()[1];// retreives the lives saved in the scenehandler 
+        hudPanel.ResetHUD(); 
         currNumEnemies = countNumEnemiesInScene();
     }
     private void Update()
     {
        isPlayerInvincible = updateInvincibility();
+        SceneHandler.Instance.saveStats(score, lives); // saves the score and lives every frame.
     }
 
     private bool updateInvincibility(){ // updates the timer on invincibility and returns if it is still active or not.
@@ -48,7 +51,13 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score++;
         hudPanel.UpdateScore(score);
     }
-
+    public int getScore() {
+        return score;
+    }
+    public int getlives()
+    {
+        return lives;
+    }
     // SCENE TRANSITION METHODS
     public void UpdateEnemyCount()
     {

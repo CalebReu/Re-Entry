@@ -8,8 +8,8 @@ public class HUDPanel : MonoBehaviour
 
     public void ResetHUD()
     {
-        txtScore.SetText("Score: " + 0);
-        txtLives.SetText("Lives: " + GameManager.MAX_LIVES);
+        txtScore.SetText("Score: " + GameManager.Instance.getScore());
+        txtLives.SetText("Lives: " + GameManager.Instance.getlives());
     }
 
     // TODO: decide if it's necessary to specify the increment (int param)
