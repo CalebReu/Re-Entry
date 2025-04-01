@@ -11,8 +11,7 @@ Classic arcade game Galaga with a rogue-like twist where player can select from 
 - Kaedyn Hindley (@typpsii)
 
 ## Demo Video
-
-** insert demo video here
+https://youtu.be/davt8GeAryI
 
 ## Asset Credits
 
