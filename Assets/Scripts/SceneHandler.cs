@@ -29,7 +29,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     private int lives;
     // Increasable stats (1 means no change in stat):
     public float fireRateMod = 1f;
-    public float bulletSpeedMod = 1f;
+    public float bulletSpeedMod = 5f;
     public float bulletSizeMod = 1f;
     public float damageMod = 1f;
     public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
@@ -69,7 +69,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         damageMod = 1;
         bulletSizeMod = 0.25f;
         bulletSpeedMod = 1f;
-        equipped = shotType.SIMPLE;
+        equipped = shotType.SHOTGUN;
     }
     public void StartGame()
     {

@@ -7,10 +7,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     // delete this comment
     [SerializeField] private float moveSpeed;
-
+    private int shells = 5;
     // for bounding movement to within screen bounds only
     [SerializeField] private float leftBound, rightBound;
     private BoxCollider2D playerBoundingBox;
+    private DisplayShells ShellsUI;
 
     // bullet stuff
     [SerializeField] private shotType equipped;
@@ -26,7 +27,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     public GameObject simpleBullet;
 
     private void Start()
-    {
+    {   
         bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
         bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
         damageMod = SceneHandler.Instance.damageMod;
@@ -34,6 +35,8 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         equipped = (shotType)SceneHandler.Instance.equipped;
 
         rb = GetComponent<Rigidbody2D>();
+        ShellsUI = GetComponentInChildren < DisplayShells >();
+        ShellsUI.Disable();
         playerBoundingBox = GetComponent<BoxCollider2D>();
 
         if (Camera.main != null)
@@ -49,6 +52,17 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         yield return new WaitForSeconds(reloadTime / fireRateMod);
         canFire = true;
     }
+      IEnumerator Shellreload(float reloadTime)
+    {
+        yield return new WaitForSeconds(reloadTime / fireRateMod);
+        if(shells<5){
+            shells++;
+        }
+        if(shells<5){
+            Shellreload(reloadTime);
+        }
+        
+    }
     private void OnEnable()
     {
         InputManager.Instance.OnMove.AddListener(MovePlayer);
@@ -62,7 +76,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     }
 
     private void Fire()
-    {
+    {   
         // Returns if can't fire
         if (!canFire) return;
 
@@ -71,8 +85,9 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         // Checks what is equipped
         switch (equipped)
         {
-
+            
             case shotType.SIMPLE:
+            
                 newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
@@ -84,6 +99,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 break;
 
             case shotType.TRIPLE:
+            
                 for (int i = 0; i < 3; i++)
                 {
                     newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
@@ -99,19 +115,25 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 StartCoroutine(reload(1.5f));
                 break;
             case shotType.SHOTGUN:
-                for (int i = 0; i < 5; i++)
+                
+                for (int i = 0; i < 10; i++)
                 {
                     newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                     bulletScript = newBullet.GetComponent<SimpleBullet>();
-                    float angle = Random.Range(-80, 80);
+                    float angle = Random.Range(-15, 15);
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
-                    bulletScript.SetSize(0.3f * bulletSizeMod);
-                    bulletScript.SetDamage(1 * damageMod);
+                    bulletScript.SetSize(0.5f * bulletSizeMod);
+                    bulletScript.SetDamage(0.2f * damageMod);
                 }
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShotgunClip);
                 canFire = false;
-                StartCoroutine(reload(1.8f));
+                if (shells >0 ){
+                     StartCoroutine(reload(0.2f));
+                     shells--;}
+                StartCoroutine(Shellreload(0.7f));
+                ShellsUI.SetShells(shells);
+                
                 break;
         }
     }
@@ -125,6 +147,13 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     public void SetWeapon(shotType newWeapon)
     {
         equipped = newWeapon;
+        if(newWeapon == shotType.SHOTGUN){
+            ShellsUI.enable();
+            ShellsUI.SetShells(shells);
+        }else{
+            shells =5;
+            ShellsUI.Disable();
+        }
     }
 
     public void SetFireRate(float newMod)
