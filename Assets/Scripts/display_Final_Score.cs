@@ -37,8 +37,9 @@ public class display_Final_Score : MonoBehaviour
        
         finalscore *= remainingLives;
         string bonusString = "\n x" + remainingLives + " lives remaining";
-        StartCoroutine(tallyScore(finalscore, bonusString));
         bonusAdded = true;
+        StartCoroutine(tallyScore(finalscore, bonusString));
+        
     }
     public void startScoreCount() {
         StartCoroutine(tallyScore(finalscore,""));
