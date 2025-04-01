@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -22,10 +20,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip musicClip;
     public AudioClip gameOverMusicClip;
     public AudioClip victoryMusicClip;
-    public AudioClip buttonClickClip;
     private void Awake()
     {
-        SetButtonSounds(); // sets the button sounds for all buttons in the scene.
         DontDestroyOnLoad(gameObject); // this makes sure the object is not destroyed when loading a new scene.
         if (instance == null)
         {
@@ -41,16 +37,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayMusic();
-    }
-    public void SetButtonSounds()
-    {
-        Button[] buttons = FindObjectsByType<Button>(FindObjectsSortMode.None);
-
-        foreach (var b in buttons)
-        {
-            UnityAction l = delegate { OnClick(); };
-            b.onClick.AddListener(l);
-        }
     }
 
     public void PlayMusic()
@@ -78,8 +64,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void OnClick()
-    {
-        PlaySound(buttonClickClip);
-    }
 }
