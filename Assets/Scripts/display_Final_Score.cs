@@ -14,11 +14,15 @@ public class display_Final_Score : MonoBehaviour
         calculateScore();
     }
     public void calculateScore() {
-        
-        if (SceneHandler.Instance != null) {
+
+        if (SceneHandler.Instance != null)
+        {
             Debug.Log("SceneHandler Detected! calculating score...");
             remainingLives = SceneHandler.Instance.getStats()[1];
             score = SceneHandler.Instance.getStats()[0];
+        }
+        else {
+            Debug.Log("SceneHandler not Detected! using placeholder score");
         }
         finalscore = 100 * score;
     }
