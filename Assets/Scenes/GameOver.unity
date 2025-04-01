@@ -297,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 411950696}
     - target: {fileID: 7854785010993796682, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeScene
+      value: mainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7854785010993796682, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -333,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5269083e7bac8b845851fde67eb2fa47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
 --- !u!1 &1472038497
 GameObject:
   m_ObjectHideFlags: 0
