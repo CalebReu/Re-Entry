@@ -421,6 +421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d812be81e52034cbe4b809cf0acd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRateMod: 1
+  bulletSpeedMod: 1
+  bulletSizeMod: 1
+  damageMod: 1
+  equipped: 0
   currScene: 0
 --- !u!4 &1362842094
 Transform:

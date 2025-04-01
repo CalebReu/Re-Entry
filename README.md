@@ -10,3 +10,4 @@ Djembe Hit 7 Center closed .wav by carlmartin -- https://freesound.org/s/158961/
 FX - Laser shoot (B) by bolkmar -- https://freesound.org/s/459609/ -- License: Creative Commons 0
 DD Shotgun 2a by DTheTech -- https://freesound.org/s/734058/ -- License: Attribution NonCommercial 4.0
 Coachgun_Fire2_dv.wav by PhreaKsAccount -- https://freesound.org/s/46264/ -- License: Attribution 3.0
+OneBeep.flac by kwahmah_02 -- https://freesound.org/s/259703/ -- License: Attribution 3.0
