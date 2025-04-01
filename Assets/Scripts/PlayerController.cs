@@ -31,7 +31,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
         damageMod = SceneHandler.Instance.damageMod;
         fireRateMod = SceneHandler.Instance.fireRateMod;
-        equipped = (shotType) SceneHandler.Instance.equipped;
+        equipped = (shotType)SceneHandler.Instance.equipped;
 
         rb = GetComponent<Rigidbody2D>();
         playerBoundingBox = GetComponent<BoxCollider2D>();
@@ -80,7 +80,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 bulletScript.SetDamage(1 * damageMod);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
-                StartCoroutine(reload(0.5f));
+                StartCoroutine(reload(1f));
                 break;
 
             case shotType.TRIPLE:
@@ -96,7 +96,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 }
                 AudioManager.instance.PlaySound(AudioManager.instance.playerTripleShotClip);
                 canFire = false;
-                StartCoroutine(reload(1.2f));
+                StartCoroutine(reload(1.5f));
                 break;
             case shotType.SHOTGUN:
                 for (int i = 0; i < 5; i++)
@@ -111,7 +111,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 }
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShotgunClip);
                 canFire = false;
-                StartCoroutine(reload(1f));
+                StartCoroutine(reload(1.8f));
                 break;
         }
     }
