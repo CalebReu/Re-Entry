@@ -79,10 +79,8 @@ MonoBehaviour:
   leftBound: 0
   rightBound: 0
   equipped: 0
-  simpleBullet: {fileID: 8505558168145713895, guid: 0de030f53ff202e499537e34f5d70762, type: 3}
   fireRateMod: 1
-  bulletSpeedMod: 1
-  bulletSizeMod: 0.3
+  simpleBullet: {fileID: 8505558168145713895, guid: 030d2338efd30484ea63434870a3fc9a, type: 3}
 --- !u!114 &6292994226416401922
 MonoBehaviour:
   m_ObjectHideFlags: 0
