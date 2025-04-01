@@ -127,6 +127,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         loadScene(currScene);
         AudioManager.instance.PlayMusic(AudioManager.instance.victoryMusicClip);
     }
+    
     public void saveStats(int score, int lives) { 
         // saves the current score and lives so they perist between scenes.
         this.score = score;
@@ -135,6 +136,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     public int[] getStats() // returns the saved score and lives.
     { int[] stats = new int[] { score, lives };
         return stats;
+
     }
 
     public void UpgradeScreen()
