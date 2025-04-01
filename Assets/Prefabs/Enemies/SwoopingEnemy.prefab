@@ -96,6 +96,10 @@ PrefabInstance:
       value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: tiltAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: PathContainer
       value: 
       objectReference: {fileID: 5479731129462893940}
@@ -143,6 +147,7 @@ MonoBehaviour:
   pauseAtEnd: 2
   randomizePause: 1
   teleportAtIndex: -1
+  tiltAmount: 10
 --- !u!114 &1332157553660211280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +168,7 @@ MonoBehaviour:
   pauseAtEnd: 5
   randomizePause: 1
   teleportAtIndex: 4
+  tiltAmount: 10
 --- !u!61 &1856380827619212401
 BoxCollider2D:
   m_ObjectHideFlags: 0
