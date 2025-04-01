@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3475400090753125136}
   - component: {fileID: 3279360297046687717}
   - component: {fileID: 8407931919197783719}
-  - component: {fileID: 2841290868405158526}
+  - component: {fileID: 7632425214708667458}
   - component: {fileID: 8795014168347104921}
   m_Layer: 0
   m_Name: Bullet
@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e3127eb0440b3a41b1608458d0f7371, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,8 +117,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2841290868405158526
-CircleCollider2D:
+--- !u!70 &7632425214708667458
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,8 +151,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.003047347, y: 0}
-  m_Radius: 0.50304735
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.8, y: 1.4}
+  m_Direction: 0
 --- !u!114 &8795014168347104921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +168,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   damage: 1
+  topBound: 0
+  bottomBound: 0
