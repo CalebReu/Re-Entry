@@ -1,5 +1,4 @@
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
+
 using UnityEngine;
 using System.Collections;
 
@@ -36,9 +35,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
         rb = GetComponent<Rigidbody2D>();
         ShellsUI = GetComponentInChildren < DisplayShells >();
-        ShellsUI.Disable();
+        
         playerBoundingBox = GetComponent<BoxCollider2D>();
-
+        if (equipped == shotType.SHOTGUN)
+        {ShellsUI.enable(); }
+        else { ShellsUI.Disable(); }
         if (Camera.main != null)
         {
             rightBound = Camera.main.orthographicSize * Camera.main.aspect;
@@ -57,9 +58,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         yield return new WaitForSeconds(reloadTime / fireRateMod);
         if(shells<5){
             shells++;
+            ShellsUI.SetShells(shells);
+            canFire = true;
         }
         if(shells<5){
-            Shellreload(reloadTime);
+            StartCoroutine(Shellreload(reloadTime));
         }
         
     }
@@ -116,22 +119,28 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 break;
             case shotType.SHOTGUN:
                 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                     bulletScript = newBullet.GetComponent<SimpleBullet>();
-                    float angle = Random.Range(-15, 15);
+                    float angle = Random.Range(-17, 17);
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(0.5f * bulletSizeMod);
-                    bulletScript.SetDamage(0.2f * damageMod);
+                    bulletScript.SetDamage(0.3f * damageMod);
                 }
+                shells--;
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShotgunClip);
                 canFire = false;
-                if (shells >0 ){
-                     StartCoroutine(reload(0.2f));
-                     shells--;}
-                StartCoroutine(Shellreload(0.7f));
+                if (shells > 0)
+                {
+                    StartCoroutine(reload(0.2f));
+                    
+                }
+                else { StopAllCoroutines(); StartCoroutine(Shellreload(1f)); }
+               
+                    
+               
                 ShellsUI.SetShells(shells);
                 
                 break;

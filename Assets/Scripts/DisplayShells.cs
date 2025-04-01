@@ -1,9 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 using System;
-using System.Linq;
-using Unity.VisualScripting;
 public class DisplayShells : MonoBehaviour
 {
     private int shells;

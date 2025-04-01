@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private Transform bulletSpawnPoint;
     private int currentMovementIdx = 0;
     private float fireTimer = 0f;
+    bool dead = false;
     void Start()
     {
         bulletSpawnPoint = transform.Find("BulletSpawnRef");
@@ -57,8 +58,9 @@ public class EnemyController : MonoBehaviour
     public void Damage(float damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
+            dead = true;
             // enemy dead whomp whomp
             GameManager.Instance.UpdateEnemyCount();
             AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
