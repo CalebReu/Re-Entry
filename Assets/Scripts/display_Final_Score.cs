@@ -16,6 +16,7 @@ public class display_Final_Score : MonoBehaviour
     public void calculateScore() {
         
         if (SceneHandler.Instance != null) {
+            Debug.Log("SceneHandler Detected! calculating score...");
             remainingLives = SceneHandler.Instance.getStats()[1];
             score = SceneHandler.Instance.getStats()[0];
         }
