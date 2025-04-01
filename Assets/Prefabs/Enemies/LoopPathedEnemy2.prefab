@@ -252,6 +252,10 @@ PrefabInstance:
       value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: tiltAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757424372266732462, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: PathContainer
       value: 
       objectReference: {fileID: 5515491961970808983}
@@ -312,6 +316,7 @@ MonoBehaviour:
   pauseAtEnd: 2
   randomizePause: 1
   teleportAtIndex: -1
+  tiltAmount: 10
 --- !u!114 &1187621047776777799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +337,7 @@ MonoBehaviour:
   pauseAtEnd: 5
   randomizePause: 1
   teleportAtIndex: 2
+  tiltAmount: 10
 --- !u!1001 &7841535374887904230
 PrefabInstance:
   m_ObjectHideFlags: 0
