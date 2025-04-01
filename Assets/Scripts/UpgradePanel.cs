@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class UpgradePanel : MonoBehaviour
 {
     [SerializeField] private GameObject fireRate;
-    [SerializeField] private GameObject bulletSpeed;
     [SerializeField] private GameObject bulletSize;
     [SerializeField] private GameObject damage;
     [SerializeField] private GameObject shotgun;
@@ -20,14 +19,13 @@ public class UpgradePanel : MonoBehaviour
 
     public void Start()
     {
-        upgradeList = new GameObject[7];
+        upgradeList = new GameObject[6];
         upgradeList[0] = fireRate;
-        upgradeList[1] = bulletSpeed;
-        upgradeList[2] = bulletSize;
-        upgradeList[3] = damage;
-        upgradeList[4] = shotgun;
-        upgradeList[5] = triple;
-        upgradeList[6] = single;
+        upgradeList[1] = bulletSize;
+        upgradeList[2] = damage;
+        upgradeList[3] = shotgun;
+        upgradeList[4] = triple;
+        upgradeList[5] = single;
 
         GenerateUpgrades();
     }
@@ -62,7 +60,7 @@ public class UpgradePanel : MonoBehaviour
     private int[] GenerateNumbers(int[] picked, int i)
     {
         if (i == 3) return picked;
-        int random = Mathf.RoundToInt(Random.Range(0, 7));
+        int random = Mathf.RoundToInt(Random.Range(0, 6));
         Debug.Log(random);
         if (picked.Contains(random) == false)
         {

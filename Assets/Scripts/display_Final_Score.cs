@@ -15,6 +15,7 @@ public class display_Final_Score : MonoBehaviour
     }
     public void calculateScore() {
 
+
      //   if (SceneHandler.Instance != null)
       //  {
            // Debug.Log("SceneHandler Detected! calculating score...");
@@ -24,6 +25,7 @@ public class display_Final_Score : MonoBehaviour
      //   else {
       //      Debug.Log("SceneHandler not Detected! using placeholder score");
       //  }
+
         finalscore = 100 * score;
     }
     public void addLivesBonus() {
