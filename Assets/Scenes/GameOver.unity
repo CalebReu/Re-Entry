@@ -294,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 7854785010993796682, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 411950695}
+      objectReference: {fileID: 411950696}
     - target: {fileID: 7854785010993796682, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: changeScene
@@ -314,14 +314,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2107228474657030967, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 411950695}
+      addedObject: {fileID: 411950696}
   m_SourcePrefab: {fileID: 100100000, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
 --- !u!1 &411950694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2107228474657030967, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
   m_PrefabInstance: {fileID: 411950693}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &411950695
+--- !u!114 &411950696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
