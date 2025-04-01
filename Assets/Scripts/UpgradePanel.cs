@@ -1,8 +1,6 @@
 using System;
 using System.Linq;
-using NUnit.Framework;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -54,7 +52,7 @@ public class UpgradePanel : MonoBehaviour
         {
             GameObject upgrade = Instantiate(upgradeList[i], panel);
         }
-        
+
 
     }
     private int[] GenerateNumbers(int[] picked, int i)

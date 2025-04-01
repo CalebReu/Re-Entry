@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using System.Collections;
 
@@ -27,6 +25,8 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     private void Start()
     {
+        InputManager.Instance.OnMove.AddListener(MovePlayer);
+        InputManager.Instance.OnFire.AddListener(Fire);
         bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
         bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
         damageMod = SceneHandler.Instance.damageMod;
@@ -49,12 +49,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         yield return new WaitForSeconds(reloadTime / fireRateMod);
         canFire = true;
     }
-    private void OnEnable()
-    {
-        InputManager.Instance.OnMove.AddListener(MovePlayer);
-        InputManager.Instance.OnFire.AddListener(Fire);
-    }
-
     private void OnDisable()
     {
         InputManager.Instance.OnMove.RemoveListener(MovePlayer);
