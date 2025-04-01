@@ -21,7 +21,10 @@ public class PathController : MonoBehaviour
     [SerializeField] private float pauseAtEnd = 0;
     [SerializeField] private bool randomizePause = false;
     [SerializeField] private int teleportAtIndex = -1;
-
+    [SerializeField] public float tiltAmount = 6;
+    private float currentTiltAngle = 0f;
+    public float direction;
+    public float tiltSmoothness = 5f;
     private Transform[] _points;
 
     private int _currentTargetIdx;
@@ -52,8 +55,10 @@ public class PathController : MonoBehaviour
     {
         if (_points == null || _points.Length == 0 || !_isMoving) return;
         var distance = Vector3.Distance(transform.position, _points[_currentTargetIdx].position);
+        direction = transform.position.x - _points[_currentTargetIdx].position.x;
         if (distance * distance < 0.1f)
         {
+            ResetTilt();
             _currentTargetIdx++;
             if (_currentTargetIdx >= _points.Length)
             {
@@ -75,6 +80,10 @@ public class PathController : MonoBehaviour
                 transform.position = _points[_currentTargetIdx].position;
             }
         }
+        else {
+            TiltSprite(direction);
+         
+        }
         switch (MovementStyle)
         {
             default:
@@ -88,8 +97,22 @@ public class PathController : MonoBehaviour
                 transform.position = Vector3.Slerp(transform.position, _points[_currentTargetIdx].position, MovementSpeed * Time.deltaTime);
                 break;
         }
-    }
 
+       
+    }
+    private void TiltSprite(float direction)
+    {
+        direction = direction > 0 ? 1 : -1;
+       
+        float targetAngle = direction * tiltAmount;
+        currentTiltAngle = Mathf.LerpAngle(currentTiltAngle, targetAngle, Time.deltaTime * tiltSmoothness);
+        transform.rotation = Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, currentTiltAngle);
+    }
+    private void ResetTilt()
+    {
+        currentTiltAngle = Mathf.LerpAngle(currentTiltAngle, Quaternion.identity.z, Time.deltaTime * tiltSmoothness);
+        transform.rotation = Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, currentTiltAngle);
+    }
     private void OnDrawGizmosSelected()
     {
         if (_points == null || _points.Length == 0) return;
