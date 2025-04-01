@@ -32,15 +32,16 @@ public class display_Final_Score : MonoBehaviour
     }
     private IEnumerator tallyScore(int targetScore, string bonus)
     {
-        float speed = 1/((targetScore - displayedScore)+1);
+        float difference = Mathf.Max((float)targetScore - (float)displayedScore,0.001f);
+        float speed = 1f/(difference);
         while (displayedScore <= targetScore)
         {
             if (displayedScore <= targetScore)
             {
-                displayedScore++;
+                displayedScore+=5;
                 txtScore.SetText("Score: " + displayedScore+" "+bonus);
             }
-            yield return new WaitForSeconds(speed*5);
+            yield return new WaitForSeconds(speed);
         }
         txtScore.SetText("Score: " + targetScore);
         StopAllCoroutines();
