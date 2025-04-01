@@ -15,15 +15,17 @@ public class display_Final_Score : MonoBehaviour
     }
     public void calculateScore() {
 
-        if (SceneHandler.Instance != null)
-        {
-            Debug.Log("SceneHandler Detected! calculating score...");
+
+     //   if (SceneHandler.Instance != null)
+      //  {
+           // Debug.Log("SceneHandler Detected! calculating score...");
             remainingLives = SceneHandler.Instance.getStats()[1];
             score = SceneHandler.Instance.getStats()[0];
-        }
-        else {
-            Debug.Log("SceneHandler not Detected! using placeholder score");
-        }
+     //   }
+     //   else {
+      //      Debug.Log("SceneHandler not Detected! using placeholder score");
+      //  }
+
         finalscore = 100 * score;
     }
     public void addLivesBonus() {
@@ -35,8 +37,9 @@ public class display_Final_Score : MonoBehaviour
        
         finalscore *= remainingLives;
         string bonusString = "\n x" + remainingLives + " lives remaining";
-        StartCoroutine(tallyScore(finalscore, bonusString));
         bonusAdded = true;
+        StartCoroutine(tallyScore(finalscore, bonusString));
+        
     }
     public void startScoreCount() {
         StartCoroutine(tallyScore(finalscore,""));
