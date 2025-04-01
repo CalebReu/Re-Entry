@@ -36,21 +36,14 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayMusic();
+        PlayMusic(musicClip);
     }
 
-    public void PlayMusic()
+    public void PlayMusic(AudioClip music)
     {
-        int sceneNumber = SceneHandler.Instance.getScene(); // gets the current scene
-        Debug.Log("music for scene " + sceneNumber + " is playing.");
-        if (musicClip != null && MusicSource != null)
+        if (music != null && MusicSource != null)
         {
-            switch (sceneNumber)
-            {
-                case 5: MusicSource.clip = (gameOverMusicClip != null) ? gameOverMusicClip : musicClip; break; //sets the music to game over
-                case 6: MusicSource.clip = (victoryMusicClip != null) ? victoryMusicClip : musicClip; break; // sets the music to victory!
-                default: MusicSource.clip = musicClip; break; // just uses the normal music
-            }
+            MusicSource.clip = music;
             MusicSource.loop = true;
             MusicSource.Play();
         }
