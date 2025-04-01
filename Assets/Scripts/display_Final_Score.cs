@@ -3,7 +3,8 @@ using TMPro;
 using System.Collections;
 public class display_Final_Score : MonoBehaviour
 {
-    private int score = SceneHandler.Instance.getStats()[0];
+    private int score = 45;
+    private int remainingLives = 3;
     private int displayedScore = 0;
     [SerializeField] private TextMeshProUGUI txtScore;
     private int finalscore;
@@ -13,7 +14,12 @@ public class display_Final_Score : MonoBehaviour
         calculateScore();
     }
     public void calculateScore() {
-        finalscore =100 * score ;
+        
+        if (SceneHandler.Instance != null) {
+            remainingLives = SceneHandler.Instance.getStats()[1];
+            score = SceneHandler.Instance.getStats()[0];
+        }
+        finalscore = 100 * score;
     }
     public void addLivesBonus() {
         StopAllCoroutines();
@@ -21,9 +27,9 @@ public class display_Final_Score : MonoBehaviour
             
             return;
         }
-        int remainingLives = SceneHandler.Instance.getStats()[1];
+       
         finalscore *= remainingLives;
-        string bonusString = "x" + remainingLives + " lives remaining";
+        string bonusString = "\n x" + remainingLives + " lives remaining";
         StartCoroutine(tallyScore(finalscore, bonusString));
         bonusAdded = true;
     }
