@@ -25,6 +25,8 @@ Scenes we need (TODO):
 public class SceneHandler : SingletonMonoBehavior<SceneHandler>
 {
     // Player stat varibles -------------------------------------------
+    private int score;
+    private int lives;
     // Increasable stats (1 means no change in stat):
     public float fireRateMod = 1f;
     public float bulletSpeedMod = 1f;
@@ -124,6 +126,17 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         currScene = WIN_SCREEN;
         loadScene(currScene);
         AudioManager.instance.PlayMusic(AudioManager.instance.victoryMusicClip);
+    }
+    
+    public void saveStats(int score, int lives) { 
+        // saves the current score and lives so they perist between scenes.
+        this.score = score;
+        this.lives = lives;
+    }
+    public int[] getStats() // returns the saved score and lives.
+    { int[] stats = new int[] { score, lives };
+        return stats;
+
     }
 
     public void UpgradeScreen()
