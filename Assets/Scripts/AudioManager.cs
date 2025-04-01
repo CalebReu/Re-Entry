@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -20,8 +22,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip musicClip;
     public AudioClip gameOverMusicClip;
     public AudioClip victoryMusicClip;
+    public AudioClip buttonClickClip;
     private void Awake()
     {
+        SetButtonSounds(); // sets the button sounds for all buttons in the scene.
+        DontDestroyOnLoad(gameObject); // this makes sure the object is not destroyed when loading a new scene.
         if (instance == null)
         {
             instance = this;
@@ -37,15 +42,26 @@ public class AudioManager : MonoBehaviour
     {
         PlayMusic();
     }
+    public void SetButtonSounds()
+    {
+        Button[] buttons = FindObjectsByType<Button>(FindObjectsSortMode.None);
+
+        foreach (var b in buttons)
+        {
+            UnityAction l = delegate { OnClick(); };
+            b.onClick.AddListener(l);
+        }
+    }
 
     public void PlayMusic()
     {
         int sceneNumber = SceneHandler.Instance.getScene(); // gets the current scene
-        Debug.Log("music for scene "+sceneNumber+" is playing.");
+        Debug.Log("music for scene " + sceneNumber + " is playing.");
         if (musicClip != null && MusicSource != null)
         {
-            switch (sceneNumber) {
-                case 5: MusicSource.clip = (gameOverMusicClip != null)? gameOverMusicClip : musicClip; break; //sets the music to game over
+            switch (sceneNumber)
+            {
+                case 5: MusicSource.clip = (gameOverMusicClip != null) ? gameOverMusicClip : musicClip; break; //sets the music to game over
                 case 6: MusicSource.clip = (victoryMusicClip != null) ? victoryMusicClip : musicClip; break; // sets the music to victory!
                 default: MusicSource.clip = musicClip; break; // just uses the normal music
             }
@@ -60,5 +76,10 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(clip);
         }
+    }
+
+    public void OnClick()
+    {
+        PlaySound(buttonClickClip);
     }
 }

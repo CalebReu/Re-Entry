@@ -108,7 +108,8 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
             loadScene(currScene);
         }
     }
-    public int getScene() {
+    public int getScene()
+    {
         return currScene; // returns the current scene 
     }
 
@@ -129,7 +130,8 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         if (currScene < LEVEL3)
         {
             UpgradeScreen();
-        } else
+        }
+        else
         {
             NextLevel();
         }
