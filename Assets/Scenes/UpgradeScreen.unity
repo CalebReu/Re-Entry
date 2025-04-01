@@ -647,7 +647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: {fileID: 6499362698786340021, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
-  bulletSpeed: {fileID: 3119769550769924270, guid: 988dbd66d4b4ddb46a383f1434e054d3, type: 3}
   bulletSize: {fileID: 2192509567971547224, guid: 2d170204e7bdc4641a0586a48956069f, type: 3}
   damage: {fileID: 4573514477386849153, guid: f11151eaa258a9747bc093bb2c1ec174, type: 3}
   shotgun: {fileID: 8544998785310107222, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
@@ -682,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
