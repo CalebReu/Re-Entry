@@ -1,5 +1,4 @@
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
+
 using UnityEngine;
 using System.Collections;
 
@@ -41,6 +40,8 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             rightBound = Camera.main.orthographicSize * Camera.main.aspect;
             leftBound = -rightBound;
         }
+        InputManager.Instance.OnMove.AddListener(MovePlayer);
+        InputManager.Instance.OnFire.AddListener(Fire);
 
     }
 

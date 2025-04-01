@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1114966277337002484}
   - component: {fileID: 6560545089923046731}
   - component: {fileID: 481579483467446443}
-  - component: {fileID: 6292994226416401922}
   - component: {fileID: 4561085740222991005}
+  - component: {fileID: 6292994226416401922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81,24 +81,6 @@ MonoBehaviour:
   equipped: 0
   fireRateMod: 1
   simpleBullet: {fileID: 8505558168145713895, guid: 030d2338efd30484ea63434870a3fc9a, type: 3}
---- !u!114 &6292994226416401922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198836219313282560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108c1b126d84fa24fac805ee586dceab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnMove:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFire:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &4561085740222991005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,6 +127,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.8476562, y: 1.9749478}
   m_EdgeRadius: 0
+--- !u!114 &6292994226416401922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198836219313282560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108c1b126d84fa24fac805ee586dceab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFire:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6104778203214820595
 GameObject:
   m_ObjectHideFlags: 0

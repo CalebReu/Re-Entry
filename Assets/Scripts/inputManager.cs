@@ -7,7 +7,7 @@ public class InputManager : SingletonMonoBehavior<InputManager>
 
   public UnityEvent<Vector2> OnMove;
   public UnityEvent OnFire;
-  void Update()
+  void FixedUpdate()
   {
     Vector3 moveVector = Vector3.zero;
     if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) moveVector += Vector3.left;
