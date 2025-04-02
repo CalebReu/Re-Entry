@@ -89,6 +89,7 @@ MonoBehaviour:
   bulletSpeedModifier: 1
   startingHealth: 1
   minShootDistance: 3.5
+  anim: {fileID: 0}
 --- !u!114 &2757424372266732462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +110,9 @@ MonoBehaviour:
   pauseAtEnd: 0
   randomizePause: 0
   teleportAtIndex: -1
+  tiltAmount: 6
+  direction: 0
+  tiltSmoothness: 5
 --- !u!1 &7501000109404262928
 GameObject:
   m_ObjectHideFlags: 0

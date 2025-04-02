@@ -8,14 +8,18 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float bulletSpeedModifier;
     [SerializeField] private int startingHealth;
     [SerializeField] private float minShootDistance;
+    [SerializeField] private Animator anim;
+
     private float health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
     private int currentMovementIdx = 0;
     private float fireTimer = 0f;
     bool dead = false;
+    bool hurt = false;
     void Start()
     {
+        anim = GetComponent<Animator>();
         bulletSpawnPoint = transform.Find("BulletSpawnRef");
         health = startingHealth;
         fireTimer = UnityEngine.Random.Range(0, 1 / fireRate); // first shot is random
@@ -40,6 +44,7 @@ public class EnemyController : MonoBehaviour
             currentMovementIdx++;
             pathControllers[currentMovementIdx].BeginMovement();
         }
+        anim.SetBool("hurt", hurt);
     }
 
     public void Fire()
@@ -66,8 +71,15 @@ public class EnemyController : MonoBehaviour
             AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
             Destroy(gameObject);
         }
+        checkDamage();
     }
-
+    private void checkDamage() {
+        if (health <= startingHealth / 2 && !hurt && startingHealth>1) {
+            hurt = !hurt;
+            anim.enabled = true;
+        
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

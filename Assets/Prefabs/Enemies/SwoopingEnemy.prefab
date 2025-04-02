@@ -44,6 +44,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2030840505009491535}
     m_Modifications:
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 7005274638598589736}
+    - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: startingHealth
       value: 2
       objectReference: {fileID: 0}
@@ -125,6 +129,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1871096068944166555, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1856380827619212401}
+    - targetCorrespondingSourceObject: {fileID: 1871096068944166555, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7005274638598589736}
   m_SourcePrefab: {fileID: 100100000, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
 --- !u!1 &883846107128150109 stripped
 GameObject:
@@ -152,6 +159,8 @@ MonoBehaviour:
   randomizePause: 1
   teleportAtIndex: -1
   tiltAmount: 10
+  direction: 0
+  tiltSmoothness: 5
 --- !u!114 &1332157553660211280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +182,8 @@ MonoBehaviour:
   randomizePause: 1
   teleportAtIndex: 4
   tiltAmount: 10
+  direction: 0
+  tiltSmoothness: 5
 --- !u!61 &1856380827619212401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,6 +230,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6078137, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &7005274638598589736
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883846107128150109}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eae30ae1698f386488c4a2c9cee78a7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2243055196204244905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 762116026617747823, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
