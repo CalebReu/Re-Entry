@@ -595,6 +595,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999059727531615331, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
+      propertyPath: m_text
+      value: Re-Re-Enter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999059727531615331, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999059727531615331, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2432869089512004533, guid: 11b30e4254ea44a4aa5f33be48d561ae, type: 2}
@@ -603,8 +611,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7645189992321935115, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
+      propertyPath: m_text
+      value: Re-Re-Entry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645189992321935115, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_fontSize
-      value: 128
+      value: 103.2
       objectReference: {fileID: 0}
     - target: {fileID: 7645189992321935115, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
       propertyPath: m_sharedMaterial
@@ -623,7 +635,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2107228474657030967, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1e1824f2f9b1b4eb0b9be85ede53f0, type: 3}
