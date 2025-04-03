@@ -31,6 +31,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
        isPlayerInvincible = updateInvincibility();
         SceneHandler.Instance.saveStats(score, lives); // saves the score and lives every frame.
+        PlayerController.Instance.UpdateRPM();
     }
 
     private bool updateInvincibility(){ // updates the timer on invincibility and returns if it is still active or not.

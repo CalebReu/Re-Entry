@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerController : SingletonMonoBehavior<PlayerController>
 {
     // delete this comment
+    [SerializeField] private  float basemoveSpeed;
     [SerializeField] private float moveSpeed;
     private int shells = 5;
     // for bounding movement to within screen bounds only
@@ -14,19 +15,21 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
 
     // bullet stuff
     [SerializeField] private shotType equipped;
-    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
+    public enum shotType { SIMPLE, TRIPLE, SHOTGUN, GATTLING };
 
     [SerializeField] private float fireRateMod = 1f;
     private float bulletSpeedMod = 1f;
     private float bulletSizeMod = 0.3f;
     private float damageMod = 1f;
+    public float RPM = 1;
+    private float firingTimer= 0;
     private bool reloading = false;
     private bool canFire = true;
     private Rigidbody2D rb;
     public GameObject simpleBullet;
 
     private void Start()
-    {
+    { 
         InputManager.Instance.OnMove.AddListener(MovePlayer);
         InputManager.Instance.OnFire.AddListener(Fire);
         bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
@@ -48,28 +51,44 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         }
         if (equipped == shotType.SHOTGUN)
         {
-            ShellsUI.enable();
-            ShellsUI.SetShells(shells);
+           
         }
         else
         {
-            shells = 5;
-            ShellsUI.Disable();
+         
         }
+        setupWeapon();
     }
+    public void setupWeapon() {
+        switch (equipped) {
+            case shotType.SHOTGUN:
+                ShellsUI.enable();
+                ShellsUI.SetShells(shells); break;
+            case shotType.SIMPLE: 
+                    shells = 5; 
+                ShellsUI.Disable(); 
+                moveSpeed = basemoveSpeed * 1.5f; break;
+            case shotType.TRIPLE:
+                shells = 5;
+                ShellsUI.Disable();
+                moveSpeed = basemoveSpeed * 1.1f; break;
+            case shotType.GATTLING:
+                shells = 5;
+                ShellsUI.Disable();
+                moveSpeed = basemoveSpeed * 0.6f; break;
 
+
+        }
+    
+    }
     IEnumerator reload(float reloadTime)
     {
         yield return new WaitForSeconds(reloadTime / fireRateMod);
         canFire = true;
     }
     IEnumerator Shellreload(float reloadTime) // for reloading shotgun shells 1 round at a time. Yay Recursion!
-    {
-        
+    {    
             yield return new WaitForSeconds(reloadTime / fireRateMod);
-        
-
-
         if (shells < 5)
         {
             shells++;
@@ -123,8 +142,9 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
-                bulletScript.SetSize(1 * bulletSizeMod);
-                bulletScript.SetDamage(1 * damageMod);
+                bulletScript.SetSize(1.5f * bulletSizeMod);
+                bulletScript.SetDamage(1.5f * damageMod);
+                CameraShake.Instance.TriggerShake(0.15f, 0.05f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
                 StartCoroutine(reload(1f));
@@ -139,9 +159,10 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     float angle = -30 + (i * 30);
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
-                    bulletScript.SetSize(1 * bulletSizeMod);
-                    bulletScript.SetDamage(1 * damageMod);
+                    bulletScript.SetSize(0.8f * bulletSizeMod);
+                    bulletScript.SetDamage(0.8f * damageMod);
                 }
+                CameraShake.Instance.TriggerShake(0.15f, 0.05f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerTripleShotClip);
                 canFire = false;
                 StartCoroutine(reload(1.5f));
@@ -179,6 +200,24 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                
                 ShellsUI.SetShells(shells);
                 
+                break;
+            case shotType.GATTLING:
+                firingTimer = 1;
+                newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
+                bulletScript = newBullet.GetComponent<SimpleBullet>();
+                bulletScript.SetSpeed(bulletSpeedMod);
+                float spread2 = RPM *4f;
+                float angle2 = Random.Range(-spread2, spread2);
+                bulletScript.setAngle(angle2);
+                bulletScript.SetSize(0.1f * bulletSizeMod);
+                bulletScript.SetDamage(0.1f * damageMod);
+                CameraShake.Instance.TriggerShake(0.15f, 0.02f);
+                AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
+                canFire = false;
+                if (RPM < 2) { RPM += 0.05f; }
+             
+                float reloadTime = Mathf.Max(0.05f, 1.5f - RPM);
+                StartCoroutine(reload(reloadTime));
                 break;
         }
     }
@@ -219,6 +258,30 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     public void SetDamageMod(float newMod)
     {
         damageMod = newMod;
+    }
+    public void UpdateRPM()
+    {
+        if (firingTimer > 0)
+        {
+            firingTimer -= Time.deltaTime;
+        }
+        else { firingTimer = 0; }
+       
+
+        if (firingTimer > 0.2f)
+        {
+
+            moveSpeed = Mathf.Max((basemoveSpeed * 0.6f) - RPM, 0.5f);
+        }
+        else
+        {
+            if (RPM > 1)
+            {
+                RPM -= 1f * Time.deltaTime;
+            }
+            else { RPM = 1; }
+            moveSpeed = basemoveSpeed * 0.6f;
+        }
     }
 
     // helper fn for MovePlayer

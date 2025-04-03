@@ -32,7 +32,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     public float bulletSpeedMod = 5f;
     public float bulletSizeMod = 1f;
     public float damageMod = 1f;
-    public enum shotType { SIMPLE, TRIPLE, SHOTGUN };
+    public enum shotType { SIMPLE, TRIPLE, SHOTGUN, GATTLING };
     public shotType equipped;
 
 
@@ -69,7 +69,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         damageMod = 1;
         bulletSizeMod = 0.25f;
         bulletSpeedMod = 1f;
-        equipped = shotType.SHOTGUN;
+        equipped = shotType.GATTLING;
     }
     public void StartGame()
     {

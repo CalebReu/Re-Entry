@@ -10,13 +10,21 @@ public class DisplayShells : MonoBehaviour
         shells =s;
         updateText();
    }
-   private void updateText(){
-    String s = "";
-    for(int i =0; i< shells; i++){
-        s = s+"I";
+    private void updateText() {
+        String s = "";
+        for (int i = 0; i < shells; i++) {
+            s = s + "I";
+        }
+        switch(shells){
+            case 5: txt.color = Color.cyan; break;
+            case 1: txt.color = Color.red; break;
+            default: txt.color = Color.white; break;
+        }
+   
+        
+   
+            txt.SetText(s);
     }
-    txt.SetText(s);
-   }
    public void Disable(){
     txt.enabled = false;
    }

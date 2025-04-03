@@ -12,18 +12,20 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private GameObject shotgun;
     [SerializeField] private GameObject triple;
     [SerializeField] private GameObject single;
+    [SerializeField] private GameObject gattling;
 
     private GameObject[] upgradeList;
 
     public void Start()
     {
-        upgradeList = new GameObject[6];
+        upgradeList = new GameObject[7];
         upgradeList[0] = fireRate;
         upgradeList[1] = bulletSize;
         upgradeList[2] = damage;
         upgradeList[3] = shotgun;
         upgradeList[4] = triple;
         upgradeList[5] = single;
+        upgradeList[6] = gattling;
 
         GenerateUpgrades();
     }

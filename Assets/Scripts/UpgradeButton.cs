@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UpgradeButton : MonoBehaviour
 {
-    enum Modifier { DAMAGE, BULLET_SPEED, BULLET_SIZE, FIRE_RATE, SIMPLE, TRIPLE, SHOTGUN };
+    enum Modifier { DAMAGE, BULLET_SPEED, BULLET_SIZE, FIRE_RATE, SIMPLE, TRIPLE, SHOTGUN, GATTLING };
 
     [SerializeField] private Modifier modType;
     [SerializeField] private float modAmount;
@@ -34,6 +34,9 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case Modifier.SHOTGUN:
                 sceneManager.SetWeapon(SceneHandler.shotType.SHOTGUN);
+                break;
+            case Modifier.GATTLING:
+                sceneManager.SetWeapon(SceneHandler.shotType.GATTLING);
                 break;
         }
 
