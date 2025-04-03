@@ -10,7 +10,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     private int shells = 5;
     // for bounding movement to within screen bounds only
     [SerializeField] private float leftBound, rightBound;
-    private BoxCollider2D playerBoundingBox;
+    private CircleCollider2D playerBoundingBox;
     private DisplayShells ShellsUI;
 
     // bullet stuff
@@ -27,11 +27,13 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     private bool canFire = true;
     private Rigidbody2D rb;
     public GameObject simpleBullet;
+    [SerializeField] private GameObject hitbox;
 
     private void Start()
     { 
         InputManager.Instance.OnMove.AddListener(MovePlayer);
         InputManager.Instance.OnFire.AddListener(Fire);
+        InputManager.Instance.OnPrecise.AddListener(DoPrecise);
         bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
         bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
         damageMod = SceneHandler.Instance.damageMod;
@@ -40,7 +42,8 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         rb = GetComponent<Rigidbody2D>();
         ShellsUI = GetComponentInChildren < DisplayShells >();
         
-        playerBoundingBox = GetComponent<BoxCollider2D>();
+        playerBoundingBox = GetComponent<CircleCollider2D>();
+
         if (equipped == shotType.SHOTGUN)
         {ShellsUI.enable(); }
         else { ShellsUI.Disable(); }
@@ -58,6 +61,18 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
          
         }
         setupWeapon();
+    }
+
+    private void DoPrecise(bool held)
+    {
+        hitbox.SetActive(held);
+        if (held)
+        {
+            moveSpeed = basemoveSpeed / 4;
+        } else
+        {
+            moveSpeed = basemoveSpeed;
+        }
     }
     public void setupWeapon() {
         switch (equipped) {
@@ -288,7 +303,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     // checks if player is at left or right screen edge, and does not let them go past it
     private void stayWithinBounds()
     {
-        float playerWidth = playerBoundingBox.size.x;
+        float playerWidth = playerBoundingBox.radius * 2;
         Vector3 pos = transform.position;
 
         if (pos.x <= (leftBound + playerWidth / 2))
