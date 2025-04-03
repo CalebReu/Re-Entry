@@ -32,7 +32,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         damageMod = SceneHandler.Instance.damageMod;
         fireRateMod = SceneHandler.Instance.fireRateMod;
         equipped = (shotType)SceneHandler.Instance.equipped;
-
+        SetWeapon(equipped);
         rb = GetComponent<Rigidbody2D>();
         ShellsUI = GetComponentInChildren < DisplayShells >();
         
