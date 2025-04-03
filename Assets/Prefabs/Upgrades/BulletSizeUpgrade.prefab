@@ -126,7 +126,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6427392160798098989, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
       propertyPath: m_text
-      value: high caliber
+      value: 'Re-size
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6499362698786340021, guid: 4961064b2a9a7a24c8e2e543f66d4939, type: 3}
       propertyPath: m_Name
