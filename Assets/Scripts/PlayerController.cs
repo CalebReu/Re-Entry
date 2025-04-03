@@ -142,9 +142,9 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
-                bulletScript.SetSize(1.5f * bulletSizeMod);
-                bulletScript.SetDamage(1.5f * damageMod);
-                CameraShake.Instance.TriggerShake(0.15f, 0.05f);
+                bulletScript.SetSize(1.2f * bulletSizeMod);
+                bulletScript.SetDamage(2f * damageMod);
+                CameraShake.Instance.TriggerShake(0.25f, 0.1f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
                 StartCoroutine(reload(1f));
