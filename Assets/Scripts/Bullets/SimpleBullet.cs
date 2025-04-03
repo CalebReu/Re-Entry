@@ -76,7 +76,7 @@ public class SimpleBullet : MonoBehaviour
             //Debug.Log("Hit player");
             GameManager.Instance.loseLive(damage);
             // TODO: Implement player damage
-            AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
+            
             Destroy(gameObject);
         }
 

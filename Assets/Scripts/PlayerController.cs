@@ -63,28 +63,21 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     }
     IEnumerator Shellreload(float reloadTime) // for reloading shotgun shells 1 round at a time. Yay Recursion!
     {
-        Debug.Log("There are " + shells + " remaing shells");
-        if (shells == 0)
-        {   
-            Debug.Log("long reload because you are greedy!");
-            yield return new WaitForSeconds(reloadTime * 2f / fireRateMod); //as it stands, this code won't run, and that makes me angry. but I don't think it can be helped. it's late and I want to sleep.
-            
-        }
-        else
-        {
+        
             yield return new WaitForSeconds(reloadTime / fireRateMod);
-        }
+        
 
 
         if (shells < 5)
         {
             shells++;
             ShellsUI.SetShells(shells);
-            canFire = true;
+            
             if (shells == 5)
             {
                 AudioManager.instance.PlaySound(AudioManager.instance.PumpActionClip);
                 reloading = false;
+                canFire = true;
                 StopAllCoroutines();
             }
             else
@@ -153,16 +146,16 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 break;
             case shotType.SHOTGUN:
                 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                     bulletScript = newBullet.GetComponent<SimpleBullet>();
-                    float spread = 27;
+                    float spread = 23;
                     float angle = Random.Range(-spread, spread);
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(0.2f * bulletSizeMod);
-                    bulletScript.SetDamage(0.15f * damageMod);
+                    bulletScript.SetDamage(0.2f * damageMod);
                 }
                 shells--;
                 CameraShake.Instance.TriggerShake(0.15f,0.05f);
@@ -170,14 +163,14 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 canFire = false;
                 if (shells > 0)
                 {
-                    StartCoroutine(reload(0.15f));
+                    StartCoroutine(reload(0.08f));
 
                 }
               
                 if (!reloading) 
                 {
                     reloading = true;
-                     StartCoroutine(Shellreload(0.7f)); 
+                     StartCoroutine(Shellreload(0.3f)); 
                 } 
                
                     

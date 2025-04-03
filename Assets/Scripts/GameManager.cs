@@ -93,6 +93,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             isPlayerInvincible = !isPlayerInvincible; // makes the player invincible (to block any more damage this frame);
             invincibilityTimer = InvincibilityDuration;// makes the player invincible for the next (InvincibilityDuration) seconds
             CameraShake.Instance.TriggerShake();
+            AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
             Flash_Sprite.Instance.flashForDuration(InvincibilityDuration);
         }
     }
