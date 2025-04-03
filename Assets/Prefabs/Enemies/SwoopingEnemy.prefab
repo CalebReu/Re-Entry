@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 7005274638598589736}
+      objectReference: {fileID: 3646813838622704761}
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: startingHealth
       value: 2
@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f9c5dc519b0f0664aa581a624cdfca03, type: 3}
+    - target: {fileID: 3402736908592317787, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7104691483746908895, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
     m_RemovedGameObjects: []
@@ -129,9 +133,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1871096068944166555, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1856380827619212401}
-    - targetCorrespondingSourceObject: {fileID: 1871096068944166555, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 9029940254287040949, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7005274638598589736}
+      addedObject: {fileID: 3646813838622704761}
   m_SourcePrefab: {fileID: 100100000, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
 --- !u!1 &883846107128150109 stripped
 GameObject:
@@ -221,23 +225,33 @@ BoxCollider2D:
   m_Offset: {x: 0.0015426278, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.4746835}
+    oldSize: {x: 2, y: 1.25}
+    newSize: {x: 3.4, y: 2.4}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1.6078137, y: 1}
   m_EdgeRadius: 0
---- !u!95 &7005274638598589736
+--- !u!4 &2243055196204244905 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 762116026617747823, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+  m_PrefabInstance: {fileID: 1563728375073720006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7558078653237581683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029940254287040949, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+  m_PrefabInstance: {fileID: 1563728375073720006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3646813838622704761
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883846107128150109}
+  m_GameObject: {fileID: 7558078653237581683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: eae30ae1698f386488c4a2c9cee78a7f, type: 2}
@@ -252,11 +266,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &2243055196204244905 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 762116026617747823, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
-  m_PrefabInstance: {fileID: 1563728375073720006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5642279764464737280
 PrefabInstance:
   m_ObjectHideFlags: 0

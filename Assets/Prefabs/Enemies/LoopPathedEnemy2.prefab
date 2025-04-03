@@ -196,6 +196,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6728966264647560554}
     m_Modifications:
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2708365677539894420}
+    - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: startingHealth
       value: 1
       objectReference: {fileID: 0}
@@ -285,7 +289,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1871096068944166555, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1187621047776777799}
+    - targetCorrespondingSourceObject: {fileID: 9029940254287040949, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2708365677539894420}
   m_SourcePrefab: {fileID: 100100000, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+--- !u!1 &2147637458369373475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9029940254287040949, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+  m_PrefabInstance: {fileID: 6961784586676892822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2708365677539894420
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147637458369373475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae5918026b8a466498ef64d066dd368d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7642237273354055161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 762116026617747823, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
@@ -317,6 +351,8 @@ MonoBehaviour:
   randomizePause: 1
   teleportAtIndex: -1
   tiltAmount: 10
+  direction: 0
+  tiltSmoothness: 5
 --- !u!114 &1187621047776777799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +374,8 @@ MonoBehaviour:
   randomizePause: 1
   teleportAtIndex: 2
   tiltAmount: 10
+  direction: 0
+  tiltSmoothness: 5
 --- !u!1001 &7841535374887904230
 PrefabInstance:
   m_ObjectHideFlags: 0

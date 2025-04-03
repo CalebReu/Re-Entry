@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
     bool hurt = false;
     void Start()
     {
-        anim = GetComponent<Animator>();
         bulletSpawnPoint = transform.Find("BulletSpawnRef");
         health = startingHealth;
         fireTimer = UnityEngine.Random.Range(0, 1 / fireRate); // first shot is random
@@ -44,7 +43,8 @@ public class EnemyController : MonoBehaviour
             currentMovementIdx++;
             pathControllers[currentMovementIdx].BeginMovement();
         }
-        anim.SetBool("hurt", hurt);
+        
+        
     }
 
     public void Fire()
@@ -67,17 +67,24 @@ public class EnemyController : MonoBehaviour
         {
             dead = true;
             // enemy dead whomp whomp
-            GameManager.Instance.UpdateEnemyCount();
             AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
-            Destroy(gameObject);
+            anim.SetBool("dead", dead);
         }
         checkDamage();
+        
+    }
+
+    public void die() {
+        Debug.Log("Enemy Died!");
+        GameManager.Instance.UpdateScore();
+        Destroy(gameObject.transform.root.gameObject);
+        GameManager.Instance.UpdateEnemyCount();
     }
     private void checkDamage() {
-        if (health <= startingHealth / 2 && !hurt && startingHealth>1) {
-            hurt = !hurt;
-            anim.enabled = true;
-        
+
+        if (health < startingHealth && !hurt && !dead) {
+            hurt = true;
+            anim.SetBool("hurt", hurt);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
