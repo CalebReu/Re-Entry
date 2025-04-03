@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 522805597022444731, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: modType
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4000347739824322974, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_Pivot.x
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7895413985092588689, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_text
-      value: Triple
+      value: GattLing
       objectReference: {fileID: 0}
     - target: {fileID: 7967665839141645833, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_Name
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8163724871488853039, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_text
-      value: Simultaneously fires three bullets in a spread pattern.
+      value: "spin up to unleash a storm of bullets \n(lowers  speed)"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

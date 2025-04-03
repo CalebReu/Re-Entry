@@ -211,7 +211,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 bulletScript.setAngle(angle2);
                 bulletScript.SetSize(0.1f * bulletSizeMod);
                 bulletScript.SetDamage(0.2f * damageMod);
-                CameraShake.Instance.TriggerShake(0.15f, 0.02f);
+                CameraShake.Instance.TriggerShake(0.15f, 0.02f+(RPM/20));
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
                 if (RPM < 2) { RPM += 0.08f; }

@@ -652,6 +652,7 @@ MonoBehaviour:
   shotgun: {fileID: 8544998785310107222, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
   triple: {fileID: 5690379812098778726, guid: 8bc98dca628168d409f9a14b312b216c, type: 3}
   single: {fileID: 7967665839141645833, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
+  gattling: {fileID: 5690379812098778726, guid: 5e431fc878bb9834aa14a0ba06fe8caf, type: 3}
 --- !u!114 &1415320947
 MonoBehaviour:
   m_ObjectHideFlags: 0

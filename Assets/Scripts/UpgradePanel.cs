@@ -60,7 +60,7 @@ public class UpgradePanel : MonoBehaviour
     private int[] GenerateNumbers(int[] picked, int i)
     {
         if (i == 3) return picked;
-        int random = Mathf.RoundToInt(Random.Range(0, 6));
+        int random = Mathf.RoundToInt(Random.Range(0, 7));
         Debug.Log(random);
         if (picked.Contains(random) == false)
         {
