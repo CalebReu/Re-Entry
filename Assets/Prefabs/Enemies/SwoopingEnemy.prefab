@@ -48,6 +48,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3646813838622704761}
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1170575372821217019, guid: e3b2e1470065fd745b787abb1c429ae2, type: 3}
+    - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: startingHealth
       value: 2
       objectReference: {fileID: 0}
@@ -254,7 +258,7 @@ Animator:
   m_GameObject: {fileID: 7558078653237581683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eae30ae1698f386488c4a2c9cee78a7f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 011ca888fe5b6fe4d87b573d1c5c5599, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

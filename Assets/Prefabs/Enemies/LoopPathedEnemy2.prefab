@@ -200,6 +200,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2708365677539894420}
     - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1170575372821217019, guid: 8769e509fbc7bde41aa81059e9ae6234, type: 3}
+    - target: {fileID: 613358098558390122, guid: dd8f8f7ef39d0aa46a02db9aff3ab3ae, type: 3}
       propertyPath: startingHealth
       value: 1
       objectReference: {fileID: 0}

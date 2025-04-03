@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int startingHealth;
     [SerializeField] private float minShootDistance;
     [SerializeField] private Animator anim;
-
+    [SerializeField] private GameObject explosion;
     private float health;
     private PathController[] pathControllers;
     private Transform bulletSpawnPoint;
@@ -68,21 +68,22 @@ public class EnemyController : MonoBehaviour
             dead = true;
             // enemy dead whomp whomp
             AudioManager.instance.PlaySound(AudioManager.instance.explosionClip);
-            anim.SetBool("dead", dead);
+            die();
         }
         checkDamage();
         
     }
 
-    public void die() {
+    public void die() { // kills the enemy.
         Debug.Log("Enemy Died!");
-        GameManager.Instance.UpdateScore();
-        Destroy(gameObject.transform.root.gameObject);
+        GameManager.Instance.UpdateScore(); 
         GameManager.Instance.UpdateEnemyCount();
+        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(gameObject.transform.root.gameObject);
+        
     }
-    private void checkDamage() {
-
-        if (health < startingHealth && !hurt && !dead) {
+    private void checkDamage() { //checks to see if we are hurt (below 80% health)
+        if (health < startingHealth*0.8 && !hurt && !dead) {
             hurt = true;
             anim.SetBool("hurt", hurt);
         }
