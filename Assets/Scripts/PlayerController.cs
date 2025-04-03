@@ -67,7 +67,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         if (shells == 0)
         {   
             Debug.Log("long reload because you are greedy!");
-            yield return new WaitForSeconds(reloadTime * 2f / fireRateMod); //as it stands, this code won't run, and that makes me angry, but I don't think it can be helped. it's late and I want to sleep.
+            yield return new WaitForSeconds(reloadTime * 2f / fireRateMod); //as it stands, this code won't run, and that makes me angry. but I don't think it can be helped. it's late and I want to sleep.
             
         }
         else
@@ -93,7 +93,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             }
 
         }
-        if (shells < 4)
+        if (shells < 5)
         {
             StartCoroutine(Shellreload(reloadTime));
 
@@ -162,7 +162,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
                     bulletScript.SetSize(0.2f * bulletSizeMod);
-                    bulletScript.SetDamage(0.1f * damageMod);
+                    bulletScript.SetDamage(0.15f * damageMod);
                 }
                 shells--;
                 CameraShake.Instance.TriggerShake(0.15f,0.05f);
