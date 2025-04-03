@@ -102,7 +102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8051138137639828076, guid: fc73ad4addfb610419039fc2858a0a2b, type: 3}
       propertyPath: m_text
-      value: re-shotgun
+      value: shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051138137639828076, guid: fc73ad4addfb610419039fc2858a0a2b, type: 3}
+      propertyPath: m_fontSize
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051138137639828076, guid: fc73ad4addfb610419039fc2858a0a2b, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23.3
       objectReference: {fileID: 0}
     - target: {fileID: 8314250531952016082, guid: fc73ad4addfb610419039fc2858a0a2b, type: 3}
       propertyPath: m_text

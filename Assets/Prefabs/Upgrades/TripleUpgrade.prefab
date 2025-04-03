@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: modType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1786610325920910247, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000347739824322974, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -94,7 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7895413985092588689, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_text
-      value: T-re-ple
+      value: Triple
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895413985092588689, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
+      propertyPath: m_fontSize
+      value: 25.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895413985092588689, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25.7
       objectReference: {fileID: 0}
     - target: {fileID: 7967665839141645833, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_Name
@@ -102,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8163724871488853039, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_text
-      value: Simultaneously fires three bullets in a spre-ad pattern.
+      value: Simultaneously fires three bullets in a spread pattern.
       objectReference: {fileID: 0}
     - target: {fileID: 8163724871488853039, guid: 3fe14fc3850eb034b99e4c9b331421a0, type: 3}
       propertyPath: m_fontStyle

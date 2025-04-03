@@ -32,6 +32,14 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 2120539257683829440, guid: 2d170204e7bdc4641a0586a48956069f, type: 3}
+      propertyPath: m_fontSize
+      value: 16.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120539257683829440, guid: 2d170204e7bdc4641a0586a48956069f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2192509567971547224, guid: 2d170204e7bdc4641a0586a48956069f, type: 3}
       propertyPath: m_Name
       value: BulletSpeedUpgrade

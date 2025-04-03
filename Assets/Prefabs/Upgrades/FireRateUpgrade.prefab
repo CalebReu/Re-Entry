@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Re-Load
       objectReference: {fileID: 0}
+    - target: {fileID: 4357395101596180761, guid: f11151eaa258a9747bc093bb2c1ec174, type: 3}
+      propertyPath: m_fontSize
+      value: 24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357395101596180761, guid: f11151eaa258a9747bc093bb2c1ec174, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4573514477386849153, guid: f11151eaa258a9747bc093bb2c1ec174, type: 3}
       propertyPath: m_Name
       value: FireRateUpgrade

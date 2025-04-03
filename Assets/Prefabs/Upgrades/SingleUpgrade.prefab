@@ -100,7 +100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472713400820473038, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
       propertyPath: m_text
-      value: Re-ifle
+      value: Singleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472713400820473038, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
+      propertyPath: m_fontSize
+      value: 20.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472713400820473038, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 8544998785310107222, guid: bcd3438ac3843f743a0ab8574d6d30b6, type: 3}
       propertyPath: m_Name

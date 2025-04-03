@@ -104,11 +104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5618445765428288766, guid: 8bc98dca628168d409f9a14b312b216c, type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5618445765428288766, guid: 8bc98dca628168d409f9a14b312b216c, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5690379812098778726, guid: 8bc98dca628168d409f9a14b312b216c, type: 3}
       propertyPath: m_Name
@@ -116,7 +116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5846234250640333888, guid: 8bc98dca628168d409f9a14b312b216c, type: 3}
       propertyPath: m_text
-      value: Damage +
+      value: bullet damage +
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
