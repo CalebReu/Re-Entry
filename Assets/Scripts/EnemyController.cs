@@ -61,8 +61,9 @@ public class EnemyController : MonoBehaviour
 
     }
     public void Damage(float damage)
-    {
+    { 
         health -= damage;
+      
         if (health <= 0 && !dead)
         {
             dead = true;
@@ -71,6 +72,9 @@ public class EnemyController : MonoBehaviour
             die();
         }
         checkDamage();
+        if (!anim.GetBool("stagger")) {
+            anim.SetTrigger("stagger"); //plays the stagger animation ;)
+        }
         
     }
 
@@ -78,14 +82,15 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Enemy Died!");
         GameManager.Instance.UpdateScore(); 
         GameManager.Instance.UpdateEnemyCount();
-        Instantiate(explosion, transform.position, transform.rotation);
-        Destroy(gameObject.transform.root.gameObject);
+        Instantiate(explosion, transform.position, transform.rotation); //spawns in an explosion
+        Destroy(gameObject.transform.root.gameObject); // destroys the whole enemy, parent and all
         
     }
     private void checkDamage() { //checks to see if we are hurt (below 80% health)
         if (health < startingHealth*0.8 && !hurt && !dead) {
             hurt = true;
             anim.SetBool("hurt", hurt);
+          
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
