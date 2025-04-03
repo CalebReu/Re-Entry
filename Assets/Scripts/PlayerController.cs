@@ -75,7 +75,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             case shotType.GATTLING:
                 shells = 5;
                 ShellsUI.Disable();
-                moveSpeed = basemoveSpeed * 0.6f; break;
+                moveSpeed = basemoveSpeed * 0.8f; break;
 
 
         }
@@ -214,9 +214,9 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 CameraShake.Instance.TriggerShake(0.15f, 0.02f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
-                if (RPM < 2) { RPM += 0.05f; }
+                if (RPM < 2) { RPM += 0.08f; }
              
-                float reloadTime = Mathf.Max(0.05f, 1.5f - RPM);
+                float reloadTime = Mathf.Max(0.08f, 1.5f - RPM);
                 StartCoroutine(reload(reloadTime));
                 break;
         }
@@ -268,10 +268,10 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         else { firingTimer = 0; }
        
 
-        if (firingTimer > 0.2f)
+        if (firingTimer > 0.5f)
         {
 
-            moveSpeed = Mathf.Max((basemoveSpeed * 0.6f) - RPM, 0.5f);
+            moveSpeed = Mathf.Max((basemoveSpeed*0.8f) - RPM, 0.5f);
         }
         else
         {
@@ -280,7 +280,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 RPM -= 1f * Time.deltaTime;
             }
             else { RPM = 1; }
-            moveSpeed = basemoveSpeed * 0.6f;
+            moveSpeed = basemoveSpeed * 0.8f;
         }
     }
 
