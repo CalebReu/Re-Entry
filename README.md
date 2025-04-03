@@ -13,6 +13,10 @@ Classic arcade game Galaga with a rogue-like twist where player can select from 
 ## Demo Video
 https://youtu.be/davt8GeAryI
 
+## Re-Re-Entry
+A refined and much improved version of the game realized in the 48 hours after the submission deadline, adds new weapons, animations, juice, sound fx, and much more.
+https://veebs22.itch.io/re-re-entry
+
 ## Asset Credits
 
 ### Music
