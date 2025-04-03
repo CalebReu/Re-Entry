@@ -62,7 +62,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     public void UpdateEnemyCount()
     {
         currNumEnemies--;
-        Debug.Log("Enemies remaining: "+currNumEnemies);
+       // Debug.Log("Enemies remaining: "+currNumEnemies);
         if (isLevelCompleted())
         {
             SceneHandler.Instance.checkVictoryScreen();

@@ -79,15 +79,15 @@ public class EnemyController : MonoBehaviour
     }
 
     public void die() { // kills the enemy.
-        Debug.Log("Enemy Died!");
+      //  Debug.Log("Enemy Died!");
         GameManager.Instance.UpdateScore(); 
         GameManager.Instance.UpdateEnemyCount();
         Instantiate(explosion, transform.position, transform.rotation); //spawns in an explosion
         Destroy(gameObject.transform.root.gameObject); // destroys the whole enemy, parent and all
         
     }
-    private void checkDamage() { //checks to see if we are hurt (below 80% health)
-        if (health < startingHealth*0.8 && !hurt && !dead) {
+    private void checkDamage() { //checks to see if we are hurt (below 50% health)
+        if (health < startingHealth*0.5f && !hurt && !dead) {
             hurt = true;
             anim.SetBool("hurt", hurt);
           
@@ -101,7 +101,6 @@ public class EnemyController : MonoBehaviour
               GameManager.Instance.loseLive(1); // this is hardcoded for now (maybe forever).
            
             AudioManager.instance.PlaySound(AudioManager.instance.hitClip);
-            // TODO: Implement player damage
         }
     }
 }

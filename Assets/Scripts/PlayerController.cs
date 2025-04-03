@@ -20,7 +20,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     private float bulletSpeedMod = 1f;
     private float bulletSizeMod = 0.3f;
     private float damageMod = 1f;
-
+    private bool reloading = false;
     private bool canFire = true;
     private Rigidbody2D rb;
     public GameObject simpleBullet;
@@ -32,7 +32,6 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         damageMod = SceneHandler.Instance.damageMod;
         fireRateMod = SceneHandler.Instance.fireRateMod;
         equipped = (shotType)SceneHandler.Instance.equipped;
-       // SetWeapon(equipped);
         rb = GetComponent<Rigidbody2D>();
         ShellsUI = GetComponentInChildren < DisplayShells >();
         
@@ -45,7 +44,16 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             rightBound = Camera.main.orthographicSize * Camera.main.aspect;
             leftBound = -rightBound;
         }
-
+        if (equipped == shotType.SHOTGUN)
+        {
+            ShellsUI.enable();
+            ShellsUI.SetShells(shells);
+        }
+        else
+        {
+            shells = 5;
+            ShellsUI.Disable();
+        }
     }
 
     IEnumerator reload(float reloadTime)
@@ -53,25 +61,44 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         yield return new WaitForSeconds(reloadTime / fireRateMod);
         canFire = true;
     }
-      IEnumerator Shellreload(float reloadTime)
+    IEnumerator Shellreload(float reloadTime) // for reloading shotgun shells 1 round at a time. Yay Recursion!
     {
-        yield return new WaitForSeconds(reloadTime / fireRateMod);
-        if(shells<5){
+        Debug.Log("There are " + shells + " remaing shells");
+        if (shells == 0)
+        {   
+            Debug.Log("long reload because you are greedy!");
+            yield return new WaitForSeconds(reloadTime * 2f / fireRateMod); //as it stands, this code won't run, and that makes me angry, but I don't think it can be helped. it's late and I want to sleep.
+            
+        }
+        else
+        {
+            yield return new WaitForSeconds(reloadTime / fireRateMod);
+        }
+
+
+        if (shells < 5)
+        {
             shells++;
             ShellsUI.SetShells(shells);
             canFire = true;
             if (shells == 5)
             {
                 AudioManager.instance.PlaySound(AudioManager.instance.PumpActionClip);
+                reloading = false;
+                StopAllCoroutines();
             }
-            else {
+            else
+            {
                 AudioManager.instance.PlaySound(AudioManager.instance.LoadShellClip);
             }
+
         }
-        if(shells<5){
+        if (shells < 4)
+        {
             StartCoroutine(Shellreload(reloadTime));
+
         }
-        
+        else { StopAllCoroutines(); }
     }
     private void OnEnable()
     {
@@ -126,25 +153,32 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 break;
             case shotType.SHOTGUN:
                 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                     bulletScript = newBullet.GetComponent<SimpleBullet>();
-                    float angle = Random.Range(-17, 17);
+                    float spread = 27;
+                    float angle = Random.Range(-spread, spread);
                     bulletScript.setAngle(angle);
                     bulletScript.SetSpeed(bulletSpeedMod);
-                    bulletScript.SetSize(0.5f * bulletSizeMod);
-                    bulletScript.SetDamage(0.3f * damageMod);
+                    bulletScript.SetSize(0.2f * bulletSizeMod);
+                    bulletScript.SetDamage(0.1f * damageMod);
                 }
                 shells--;
+                CameraShake.Instance.TriggerShake(0.15f,0.05f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShotgunClip);
                 canFire = false;
                 if (shells > 0)
                 {
-                    StartCoroutine(reload(0.2f));
-                    
+                    StartCoroutine(reload(0.15f));
+
                 }
-                else { StopAllCoroutines(); StartCoroutine(Shellreload(1f)); }
+              
+                if (!reloading) 
+                {
+                    reloading = true;
+                     StartCoroutine(Shellreload(0.7f)); 
+                } 
                
                     
                
