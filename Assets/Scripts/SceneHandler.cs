@@ -69,7 +69,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         damageMod = 1;
         bulletSizeMod = 0.25f;
         bulletSpeedMod = 1f;
-        equipped = shotType.GATTLING;
+        equipped = shotType.SIMPLE;
     }
     public void StartGame()
     {
