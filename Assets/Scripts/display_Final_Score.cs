@@ -52,7 +52,7 @@ public class display_Final_Score : MonoBehaviour
         {
             if (displayedScore <= targetScore)
             {
-                displayedScore+=5;
+                displayedScore+=25;
                 txtScore.SetText("Score: " + displayedScore+" "+bonus);
             }
             yield return new WaitForSeconds(speed);

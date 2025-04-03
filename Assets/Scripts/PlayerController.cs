@@ -26,7 +26,9 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     public GameObject simpleBullet;
 
     private void Start()
-    {   
+    {
+        InputManager.Instance.OnMove.AddListener(MovePlayer);
+        InputManager.Instance.OnFire.AddListener(Fire);
         bulletSpeedMod = SceneHandler.Instance.bulletSpeedMod;
         bulletSizeMod = SceneHandler.Instance.bulletSizeMod;
         damageMod = SceneHandler.Instance.damageMod;
