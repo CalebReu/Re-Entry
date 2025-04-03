@@ -210,7 +210,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 float angle2 = Random.Range(-spread2, spread2);
                 bulletScript.setAngle(angle2);
                 bulletScript.SetSize(0.1f * bulletSizeMod);
-                bulletScript.SetDamage(0.1f * damageMod);
+                bulletScript.SetDamage(0.2f * damageMod);
                 CameraShake.Instance.TriggerShake(0.15f, 0.02f);
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
