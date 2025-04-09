@@ -7,6 +7,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
     // delete this comment
     [SerializeField] private  float basemoveSpeed;
     [SerializeField] private float moveSpeed;
+    [SerializeField] public Player_Sprite_swapper sprites;
     private int shells = 5;
     // for bounding movement to within screen bounds only
     [SerializeField] private float leftBound, rightBound;
@@ -60,6 +61,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         setupWeapon();
     }
     public void setupWeapon() {
+        sprites.SwapSprites(); //changes the players sprite to reflect the current weapon.
         switch (equipped) {
             case shotType.SHOTGUN:
                 ShellsUI.enable();
