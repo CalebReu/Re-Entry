@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip musicClip;
     public AudioClip gameOverMusicClip;
     public AudioClip victoryMusicClip;
+    [SerializeField] private AudioMixer MusicMixer;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject); // this makes sure the object is not destroyed when loading a new scene.
@@ -58,5 +59,7 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(clip);
         }
     }
-
+    public void setMuffle(float i) {
+        MusicMixer.SetFloat("MusicLowPass", Mathf.Max(5000 - i,0));
+    }
 }

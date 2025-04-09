@@ -232,6 +232,7 @@ MonoBehaviour:
   rightBound: 0
   equipped: 2
   fireRateMod: 1
+  RPM: 1
   simpleBullet: {fileID: 8505558168145713895, guid: 030d2338efd30484ea63434870a3fc9a, type: 3}
 --- !u!114 &6292994226416401922
 MonoBehaviour:

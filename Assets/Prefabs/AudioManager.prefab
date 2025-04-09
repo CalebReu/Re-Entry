@@ -56,9 +56,10 @@ MonoBehaviour:
   LoadShellClip: {fileID: 8300000, guid: d2497af2479e6b941bde4b7f6bbaa848, type: 3}
   PumpActionClip: {fileID: 8300000, guid: 19deaf8a74b897d409e0bb039ed32ae9, type: 3}
   hitClip: {fileID: 8300000, guid: da713e5005ea680408f9e39ad39d0d5c, type: 3}
-  musicClip: {fileID: 8300000, guid: f4b438844e4e53848ac5d85f74359cd1, type: 3}
+  musicClip: {fileID: 8300000, guid: f28bf33528e953d43b05e3e35791daf2, type: 3}
   gameOverMusicClip: {fileID: 8300000, guid: 9d56f3c2fe63e5f41a07a34e85e793ff, type: 3}
   victoryMusicClip: {fileID: 8300000, guid: 34e0b59afb3a109419b6dc491a312189, type: 3}
+  MusicMixer: {fileID: 24100000, guid: 5956b5848f1a84f418e6fcdd4edc8aaa, type: 2}
 --- !u!82 &4987877356575680563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ AudioSource:
   m_GameObject: {fileID: 5238163992138978970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8991026529120310388, guid: 5956b5848f1a84f418e6fcdd4edc8aaa, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -165,7 +166,7 @@ AudioSource:
   m_GameObject: {fileID: 5238163992138978970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -9082323007336298275, guid: 5956b5848f1a84f418e6fcdd4edc8aaa, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-
 #if UNITY_EDITOR
 using UnityEditor;
 # endif
@@ -142,6 +141,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     public void UpgradeScreen()
     {
         loadScene(UPGRADE_SCREEN);
+        AudioManager.instance.setMuffle(4000);
         // Does not update currScene so that when NextLevel() is called it won't break.
     }
 
@@ -170,6 +170,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     // helper methods -------------------------------------------------
     public void loadScene(int index)
     {
+        AudioManager.instance.setMuffle(0);
         SceneManager.LoadScene(scenes[index]);
     }
     public void SetBulletSizeMod(float newMod)
