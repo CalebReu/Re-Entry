@@ -10,6 +10,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     // vars
     [SerializeField] private HUDPanel hudPanel;
+    [SerializeField] private transitionHandler transition;
     [SerializeField] private float InvincibilityDuration; // the amount of time the player will be invincible for after taking damage;
     private int score = 0;
     private int lives = 3;
@@ -66,7 +67,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
        // Debug.Log("Enemies remaining: "+currNumEnemies);
         if (isLevelCompleted())
         {
-            SceneHandler.Instance.checkVictoryScreen();
+            transition.transitionOut();
+            
         }
     }
 
