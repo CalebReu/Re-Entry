@@ -75,7 +75,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
             case shotType.GATTLING:
                 shells = 5;
                 ShellsUI.Disable();
-                moveSpeed = basemoveSpeed * 0.8f; break;
+                moveSpeed = basemoveSpeed; break;
 
 
         }
@@ -206,11 +206,11 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 newBullet = Instantiate(simpleBullet, transform.position, transform.rotation);
                 bulletScript = newBullet.GetComponent<SimpleBullet>();
                 bulletScript.SetSpeed(bulletSpeedMod);
-                float spread2 = RPM *4f;
+                float spread2 = RPM *8f;
                 float angle2 = Random.Range(-spread2, spread2);
                 bulletScript.setAngle(angle2);
                 bulletScript.SetSize(0.1f * bulletSizeMod);
-                bulletScript.SetDamage(0.2f * damageMod);
+                bulletScript.SetDamage(0.5f * damageMod);
                 CameraShake.Instance.TriggerShake(0.15f, 0.02f+(RPM/20));
                 AudioManager.instance.PlaySound(AudioManager.instance.playerShootClip);
                 canFire = false;
@@ -271,7 +271,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
         if (firingTimer > 0.5f)
         {
 
-            moveSpeed = Mathf.Max((basemoveSpeed*0.8f) - RPM, 0.5f);
+            moveSpeed = Mathf.Max((basemoveSpeed) - RPM, 0.5f);
         }
         else
         {
@@ -280,7 +280,7 @@ public class PlayerController : SingletonMonoBehavior<PlayerController>
                 RPM -= 1f * Time.deltaTime;
             }
             else { RPM = 1; }
-            moveSpeed = basemoveSpeed * 0.8f;
+            moveSpeed = basemoveSpeed;
         }
     }
 
